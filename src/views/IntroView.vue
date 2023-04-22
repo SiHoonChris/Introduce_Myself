@@ -12,9 +12,9 @@ export default {
       greeting: '인사',
       country: '국가',
       langs: [
-        {country:'kor', greeting:'안녕하세요'},
-        {country:'eng', greeting:'Hello'    },
-        {country:'jpn', greeting:'こんにちは'}
+        {country:'ko', greeting:'안녕하세요'},
+        {country:'en', greeting:'Hello'    },
+        {country:'jp', greeting:'こんにちは'}
       ],
       fn_langSetter: null
     }
