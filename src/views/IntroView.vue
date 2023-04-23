@@ -10,7 +10,7 @@ export default {
     return {
       num: 0,
       greeting: '인사',
-      country: '국가',
+      country:  '국가',
       langs: [
         {country:'ko', greeting:'안녕하세요'},
         {country:'en', greeting:'Hello'    },

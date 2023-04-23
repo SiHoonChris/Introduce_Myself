@@ -3,27 +3,13 @@
     <div class="menu-bar">
       <div class="menu-content">
         <ul>
-          <li>
-            <img :src="healthicon" @click="tester"><!-- 정보 : 생년월일, 연락처, 깃허브 등 -->
-          </li>
-          <li>
-            <img :src="memoicon"><!-- 자기소개 : 자기 정의, 장점 등 --> 
-          </li>
-          <li>
-            <img :src="remindericon"><!-- 기술스택 --> 
-          </li>
-          <li>
-            <img :src="imageicon"><!-- 개인 프로젝트 -->
-          </li>
-          <li>
-            <img :src="itunesicon"><!-- 팀 프로젝트 1 -->
-          </li>
-          <li>
-            <img :src="appstoreicon"><!-- 팀 프로젝트 2 -->
-          </li>
-          <li>
-            <img :src="settingicon"><!-- 포트폴리오 스펙 -->
-          </li>
+          <li><img :src="healthicon"   @click="showContents('AM')"></li>
+          <li><img :src="memoicon"     @click="showContents('IM')"></li>
+          <li><img :src="remindericon" @click="showContents('TS')"></li>
+          <li><img :src="imageicon"    @click="showContents('ToyPrj')"></li>
+          <li><img :src="itunesicon"   @click="showContents('TPrj1')"></li>
+          <li><img :src="appstoreicon" @click="showContents('TPrj2')"></li>
+          <li><img :src="settingicon"  @click="showContents('Spec')"></li>
         </ul>
       </div>
     </div>
@@ -34,13 +20,13 @@
 export default {
   data () { 
     return {
-      healthicon: require("@/assets/health-icon.png"),
-      memoicon: require("@/assets/memo-icon.png"),
-      remindericon: require("@/assets/reminder-icon.png"),
-      imageicon: require("@/assets/image-icon.png"),
-      itunesicon: require("@/assets/itunes-icon.png"),
-      appstoreicon: require("@/assets/appstore-icon.png"),
-      settingicon: require("@/assets/setting-icon.png")
+      healthicon:   require("@/assets/icons/health-icon.png"),
+      memoicon:     require("@/assets/icons/memo-icon.png"),
+      remindericon: require("@/assets/icons/reminder-icon.png"),
+      imageicon:    require("@/assets/icons/image-icon.png"),
+      itunesicon:   require("@/assets/icons/itunes-icon.png"),
+      appstoreicon: require("@/assets/icons/appstore-icon.png"),
+      settingicon:  require("@/assets/icons/setting-icon.png")
     }
   },
   mounted(){
@@ -55,8 +41,8 @@ export default {
         menu.style.transition=speed+"s ease-in-out"
       }, delay)
     },
-    tester(){
-      alert('asfg')
+    showContents(word){
+      this.$emitter.emit('sc', word)
     }
   }
 }
