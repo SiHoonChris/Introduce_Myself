@@ -1,20 +1,16 @@
-<template><!--Avoid Mouse-->
-  <div class="cont-disp">
-    <div style="border: 1px solid red; height:50%; display: flex; align-items: center; justify-content: center;">
-      <h1>기술 스택</h1>
-    </div>
-    <div style="border: 1px solid blue; height:50%;">
-      <img :src="vueimg" style="width:10vh; height:10vh;">
-      <img :src="pythonimg" style="width:10vh; height:10vh;">
-      <img :src="javaimg" style="width:12vh; height:12vh;">
-      <img :src="html5img" style="width:12vh; height:11vh;">
-      <img :src="css3img" style="width:9vh; height:11vh;">
-      <img :src="jsimg" style="width:9vh; height:11vh;">
-      <img :src="jqueryimg" style="width:11vh; height:11vh;">
-      <img :src="mysqlimg" style="width:11vh; height:11vh;">
-      <img :src="springimg" style="width:10h; height:10vh;">
-      <img :src="bootstrapimg" style="width:11vh; height:10vh;">
-    </div>
+<template>
+  <div class="cont-disp" @mousemove="mouseTracker">
+    <span>기술 스택</span>
+    <img :src="vueimg">
+    <img :src="pythonimg">
+    <img :src="javaimg">
+    <img :src="html5img">
+    <img :src="css3img">
+    <img :src="jsimg">
+    <img :src="jqueryimg">
+    <img :src="mysqlimg">
+    <img :src="springimg">
+    <img :src="bootstrapimg">
   </div>
 </template>
 
@@ -34,8 +30,22 @@ export default {
       bootstrapimg: require('@/assets/tech/bootstrap-img.png'),
     }
   },
+  mounted(){
+    this.randomLoc()
+  },
   methods:{
-
+    mouseTracker(evt){
+      console.log(evt.clientX + " , " + evt.clientY)
+    },
+    randomLoc(){
+      const skills = document.querySelectorAll(".cont-disp img")
+      for(const skill of skills){
+        let h = Math.random()*70 // h: 3vh~84vh??  
+        let w = Math.random()*70 // w: 12vw ~ 82vw??
+        skill.style.top=h+"vh"
+        skill.style.left=w+"vw"
+      }
+    }
   }
 }
 </script>
@@ -44,6 +54,22 @@ export default {
   .cont-disp {
     width: 76vw;
     height: 81vh;
-    border: 1px solid blue;
+    border: 1px solid red;
+    position: relative;
+  }
+  .cont-disp span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    z-index: 0;
+  }
+  img {
+    display:block;
+    width: 12vh;
+    height: 12vh;
+    position: absolute;
+    z-index: 1;
   }
 </style>
