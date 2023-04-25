@@ -1,6 +1,6 @@
-<template>
-  <div class="cont-disp" @mousemove="mouseTracker">
-    <span>기술 스택</span>
+<template><!-- 개선5) 무질서하게 어지럽혀져 있다가, 완전히 fade-in 끝나고 제자리에 정렬 -->
+  <div class="cont-disp">
+    <span>기술 스택</span><!-- 개선6) 위치 이동 후 서브 메시지 출력 : 현재도 기술 개발을 위해 노력중입니다. -->
     <img :src="vueimg">
     <img :src="pythonimg">
     <img :src="javaimg">
@@ -31,19 +31,19 @@ export default {
     }
   },
   mounted(){
+    const contentViewer = document.querySelector(".cont-disp")
+    setTimeout(()=>{
+      contentViewer.style.opacity="1"
+      contentViewer.style.transition="opacity 0.4s"
+    }, 0)
     this.randomLoc()
   },
   methods:{
-    mouseTracker(evt){
-      console.log(evt.clientX + " , " + evt.clientY)
-    },
     randomLoc(){
       const skills = document.querySelectorAll(".cont-disp img")
       for(const skill of skills){
-        let h = Math.random()*70 // h: 3vh~84vh??  
-        let w = Math.random()*70 // w: 12vw ~ 82vw??
-        skill.style.top=h+"vh"
-        skill.style.left=w+"vw"
+        skill.style.top = Math.random()*70+"vh"
+        skill.style.left = Math.random()*70+"vw"
       }
     }
   }

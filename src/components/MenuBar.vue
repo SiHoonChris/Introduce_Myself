@@ -33,7 +33,7 @@ export default {
     this.activateMenu(0, 1.4, 1600)
     this.activateMenu(13.4, 1.6, 3200)
   },
-  methods: { // menu-bar 영역이 줄어도, menu-area 영역은 유지되도록 수정
+  methods: { // 개선1) menu-bar가 들어가도 menu-area 영역은 유지되도록 수정
     activateMenu(length, speed, delay){
       const menu = document.querySelector(".menu-bar")
       setTimeout(()=>{

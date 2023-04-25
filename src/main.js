@@ -28,7 +28,7 @@ const i18nStrings = {
     birthdate2: "1997年 4月 26日",
     contact: '連絡先',
     github: 'ギットハブ',
-    introduce: '最高のチームプレーヤー, 李時熏です。'
+    introduce: '最高のチームプレーヤー、李時熏です。'
   }
 }
 

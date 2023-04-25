@@ -7,11 +7,11 @@
       <h4>{{$translate(this.$route.params.lang + ".introduce")}}</h4>
       <ul>
         <li>
-          <span>{{$translate(this.$route.params.lang + ".birthdate1")}}</span>
+          <span>{{$translate(this.$route.params.lang + ".birthdate1")}}</span>&nbsp;
           <span>{{$translate(this.$route.params.lang + ".birthdate2")}}</span>
         </li>
         <li>
-          <span>{{$translate(this.$route.params.lang + ".contact")}}</span>
+          <span>{{$translate(this.$route.params.lang + ".contact")}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
           <span>chrisleegpock@gmail.com</span>
         </li>
         <li>
@@ -64,10 +64,20 @@ export default {
     width: 100%;
   }
   .brief {
-    width:40%;
-    height:100%;
-    /* border: 1px solid grey; */
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     align-content: center;
+    justify-content: space-between;
+  }
+  .brief h4 {
+    padding-left: 1vw;
+    margin-top: 12vh;
+  }
+  .cont-disp ul {
+    padding-left: 1vw;
+    margin-bottom: 5vh;
   }
   .cont-disp ul li {
     list-style-type: none;

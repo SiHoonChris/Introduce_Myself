@@ -44,7 +44,6 @@ export default {
     },
     changer(langSetter){
       setTimeout(()=>{
-        console.log(this.num)
         langSetter.style.opacity = "1"
         langSetter.style.transition = "opacity 1.7s"
       }, 0)

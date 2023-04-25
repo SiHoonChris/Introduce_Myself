@@ -1,5 +1,5 @@
 <template><!-- 개인 프로젝트 -->
-  <div class="about-me">
+  <div class="cont-disp">
     <h1>토이 프로젝트</h1>
   </div>
 </template>
@@ -18,7 +18,9 @@ export default {
 </script>
 
 <style scoped>
-  .about-me {
+  .cont-disp {
+    width: 76vw;
+    height: 81vh;
     background: blue;
   }
 </style>
