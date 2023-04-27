@@ -3,8 +3,7 @@
     <div class="project-container">
       <div class="project-cover">
         <!-- 개선2) 1) 클릭하면 새탭에서 이미지 보이게 하기, 마우스 커서 - 포인터, 또는 2) 무신사 페이지로 이동 - 비교할 수 있도록 -->
-        <img :src="home">
-        <img :src="login">
+        <img v-for="(page, i) in covers" :key="i" :src="page.src" :alt="page.alt">
       </div>
       <div class="project-spec">
         <ul class="inclusive">
@@ -36,10 +35,7 @@
       </div>
       <div class="project-preview">
         <ul class="preview"><!-- 개선3) 사진에 마우스 hover하면 회색 바탕에 덮어쓰고 설명 보이기 -->
-          <li><div><img :src="prod"></div></li>
-          <li><div><img :src="detail"></div></li>
-          <li><div><img :src="cart"></div></li>
-          <li><div><img :src="pay"></div></li>
+          <li v-for="(page, i) in previews" :key="i"><div><img :src="page.src" :alt="page.alt"></div></li>
         </ul>
       </div>
     </div>
@@ -58,12 +54,16 @@
 export default {
   data () {
     return {
-      home: require('@/assets/team-prj2/tp2home.png'),
-      login: require('@/assets/team-prj2/tp2login.png'),
-      cart: require('@/assets/team-prj2/tp2cart.png'),
-      detail: require('@/assets/team-prj2/tp2detail.png'),
-      prod: require('@/assets/team-prj2/tp2products.png'),
-      pay: require('@/assets/team-prj2/tp2payment.png')
+      covers:[
+        {src:require('@/assets/team-prj2/tp2home.png'),     alt:'홈페이지 입니다.'       },
+        {src:require('@/assets/team-prj2/tp2login.png'),    alt:'로그인 페이지 입니다.'  },  
+      ],
+      previews: [
+        {src:require('@/assets/team-prj2/tp2products.png'), alt:'상품페이지 입니다.'     },
+        {src:require('@/assets/team-prj2/tp2detail.png'),   alt:'상품 상세 페이지 입니다.'},
+        {src:require('@/assets/team-prj2/tp2cart.png'),     alt:'장바구니 페이지 입니다.' },
+        {src:require('@/assets/team-prj2/tp2payment.png'),  alt:'장바구니 페이지 입니다.' }
+      ] 
     }
   },
   methods:{
@@ -81,7 +81,8 @@ export default {
     width: 76vw;
     height: 81vh;
     overflow: hidden;
-    position: relative
+    position: relative;
+    opacity: 0;
   }
   .project-container {
     width: 200%;

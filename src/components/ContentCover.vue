@@ -4,22 +4,7 @@
       <img :src="sihoonchris">
     </div>
     <div class="brief">
-      <h4>{{$translate(this.$route.params.lang + ".introduce")}}</h4>
-      <ul>
-        <li>
-          <span>{{$translate(this.$route.params.lang + ".birthdate1")}}</span>&nbsp;
-          <span>{{$translate(this.$route.params.lang + ".birthdate2")}}</span>
-        </li>
-        <li>
-          <span>{{$translate(this.$route.params.lang + ".contact")}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-          <span>chrisleegpock@gmail.com</span>
-        </li>
-        <li>
-          <a class="github" href="https://github.com/SiHoonChris">
-            {{$translate(this.$route.params.lang + ".github")}}
-          </a>
-        </li>
-      </ul>
+      <h4>{{$translate(this.$route.params.lang + ".start")}}</h4>
     </div>
   </div>
 </template>
@@ -30,13 +15,6 @@ export default {
     return {
       sihoonchris: require('@/assets/images/sihoonchris3.jpg')
     }
-  },
-  mounted(){
-    const contentViewer = document.querySelector(".cont-disp")
-    setTimeout(()=>{
-      contentViewer.style.opacity="1"
-      contentViewer.style.transition="opacity 0.4s"
-    }, 0)
   },
   methods:{}
 }

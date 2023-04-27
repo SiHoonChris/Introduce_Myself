@@ -1,16 +1,10 @@
-<template><!-- 개선5) 무질서하게 어지럽혀져 있다가, 완전히 fade-in 끝나고 제자리에 정렬 -->
+<template>
   <div class="cont-disp">
-    <span>기술 스택</span><!-- 개선6) 위치 이동 후 서브 메시지 출력 : 현재도 기술 개발을 위해 노력중입니다. -->
-    <img :src="vueimg">
-    <img :src="pythonimg">
-    <img :src="javaimg">
-    <img :src="html5img">
-    <img :src="css3img">
-    <img :src="jsimg">
-    <img :src="jqueryimg">
-    <img :src="mysqlimg">
-    <img :src="springimg">
-    <img :src="bootstrapimg">
+    <div>
+      <span>기술 스택</span>
+      <span>지금 이 순간에도 발전하고 있습니다.</span>
+    </div>
+    <img v-for="(skill, i) in tech" :key="i" :src="skill.src" :alt="skill.alt" :style="skill.style">
   </div>
 </template>
 
@@ -18,25 +12,35 @@
 export default {
   data () {
     return {
-      vueimg: require('@/assets/tech/vue-img.png'),
-      pythonimg: require('@/assets/tech/python-img.png'),
-      javaimg: require('@/assets/tech/java-img.png'),
-      html5img: require('@/assets/tech/html5-img.png'),
-      css3img: require('@/assets/tech/css3-img.png'),
-      jsimg: require('@/assets/tech/js-img.png'),
-      jqueryimg: require('@/assets/tech/jquery-img.png'),
-      mysqlimg: require('@/assets/tech/mysql-img.png'),
-      springimg: require('@/assets/tech/spring-img.png'),
-      bootstrapimg: require('@/assets/tech/bootstrap-img.png'),
+      tech: [
+        { src:require('@/assets/tech/html5-img.png'),     alt:'FE-HTML5',      style:"width: 14vh; height: 12vh;" },
+        { src:require('@/assets/tech/css3-img.png'),      alt:'FE-CSS3',       style:"width: 10vh; height: 12vh;" },
+        { src:require('@/assets/tech/js-img.png'),        alt:'FE-JavsScript', style:"width: 10vh; height: 12vh;" },
+        { src:require('@/assets/tech/jquery-img.png'),    alt:'FE-jQuery',     style:"width: 13vh; height: 13vh;" },
+        { src:require('@/assets/tech/vue-img.png'),       alt:'FE-Vue3',       style:"width: 12vh; height: 12vh;" },
+        { src:require('@/assets/tech/bootstrap-img.png'), alt:'FE-Bootstrap',  style:"width: 12vh; height: 11vh;" },
+        { src:require('@/assets/tech/java-img.png'),      alt:'BE-Java',       style:"width: 14vh; height: 14vh;" },
+        { src:require('@/assets/tech/spring-img.png'),    alt:'BE-Spring',     style:"width: 12vh; height: 12vh;" },
+        { src:require('@/assets/tech/python-img.png'),    alt:'BE-Python',     style:"width: 12vh; height: 12vh;" },
+        { src:require('@/assets/tech/mysql-img.png'),     alt:'BE-MySQL',      style:"width: 12vh; height: 12vh;" },
+      ]
     }
   },
   mounted(){
-    const contentViewer = document.querySelector(".cont-disp")
-    setTimeout(()=>{
-      contentViewer.style.opacity="1"
-      contentViewer.style.transition="opacity 0.4s"
-    }, 0)
     this.randomLoc()
+    setTimeout(()=>{
+      this.locSetter()
+    }, 400)
+    setTimeout(()=>{
+      const title = document.querySelector(".cont-disp div")
+      title.style.left = "20%"
+      title.style.transition = "2s ease-out"
+    }, 400)
+    setTimeout(()=>{
+      const title = document.querySelector(".cont-disp div span:last-child")
+      title.style.opacity = 1
+      title.style.transition = "2s ease-out"
+    }, 3000)
   },
   methods:{
     randomLoc(){
@@ -44,6 +48,25 @@ export default {
       for(const skill of skills){
         skill.style.top = Math.random()*70+"vh"
         skill.style.left = Math.random()*70+"vw"
+      }
+    },
+    locSetter(){
+      const skills = document.querySelectorAll(".cont-disp img")
+      let feHLoc = 30
+      let beHLoc = 30
+      for(const skill of skills){
+        if(skill.alt.startsWith('FE')){
+          skill.style.top = "14vh"
+          skill.style.left = feHLoc+"vw"
+          skill.style.transition = "2s ease-out"
+          feHLoc += Number(skill.style.width.slice(0,2))/2
+        }
+        else {
+          skill.style.top = "54vh"
+          skill.style.left = beHLoc+"vw"
+          skill.style.transition = "2s ease-out"
+          beHLoc += Number(skill.style.width.slice(0,2))/2
+        }
       }
     }
   }
@@ -56,19 +79,27 @@ export default {
     height: 81vh;
     border: 1px solid red;
     position: relative;
+    opacity:0;
   }
-  .cont-disp span {
+  .cont-disp div {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 60px;
     z-index: 0;
   }
+  .cont-disp div span:first-child {
+    display: block;
+    font-size: 60px;
+  }
+  .cont-disp div span:last-child {
+    display: block;
+    opacity: 0;
+    font-size: 14px;
+    text-align: center;
+  }
   img {
-    display:block;
-    width: 12vh;
-    height: 12vh;
+    display: block;
     position: absolute;
     z-index: 1;
   }

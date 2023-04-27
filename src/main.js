@@ -4,10 +4,11 @@ import router from './router'
 import store from './store'
 import i18nPlugin from './plugins/i18n'
 import mitt from './mitt'
+import mixins from './mixins'
 
 const i18nStrings = {
   ko: {
-    start: "아래 메뉴바를 확인",
+    start: "새로움을 경험하세요",
     birthdate1: '생년월일',
     birthdate2: "1997년 4월 26일",
     contact: '연락처',
@@ -15,7 +16,7 @@ const i18nStrings = {
     introduce: '최고의 팀플레이어, 이시훈입니다.'
   },
   en: {
-    start: "Check the menu-bar below",
+    start: "Experience New",
     birthdate1: 'Birth Date',
     birthdate2: "Apr. 26th, 1997",
     contact: 'Contact',
@@ -23,7 +24,7 @@ const i18nStrings = {
     introduce: "Best Team Player, SiHoon Lee"
   },
   jp: {
-    start: "下のメニューバーをチェック",
+    start: "新しい経験",
     birthdate1: '生年月日',
     birthdate2: "1997年 4月 26日",
     contact: '連絡先',
@@ -32,4 +33,4 @@ const i18nStrings = {
   }
 }
 
-createApp(App).use(store).use(router).use(i18nPlugin, i18nStrings).use(mitt).mount('#app')
+createApp(App).use(store).use(router).use(i18nPlugin, i18nStrings).use(mitt).mixin(mixins).mount('#app')

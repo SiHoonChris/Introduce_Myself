@@ -1,18 +1,17 @@
 <template>
   <div class="content">
-    <div v-if="this.content==='default'">{{$translate(this.$route.params.lang + ".start")}}</div>
-    <AboutMe    v-else-if="this.content==='AM'"    />
-    <IntroMyslf v-else-if="this.content==='IM'"    />
-    <TechStack  v-else-if="this.content==='TS'"    />
-    <ToyPrj     v-else-if="this.content==='ToyPrj'"/>
-    <TeamPrj1   v-else-if="this.content==='TPrj1'" />
-    <TeamPrj2   v-else-if="this.content==='TPrj2'" />
-    <PrgSpec    v-else-if="this.content==='Spec'"  />
+    <ContentCover v-if="this.content==='AM' || this.content==='default'"/>
+    <IntroMyslf   v-else-if="this.content==='IM'"    />
+    <TechStack    v-else-if="this.content==='TS'"    />
+    <ToyPrj       v-else-if="this.content==='ToyPrj'"/>
+    <TeamPrj1     v-else-if="this.content==='TPrj1'" />
+    <TeamPrj2     v-else-if="this.content==='TPrj2'" />
+    <PrgSpec      v-else-if="this.content==='Spec'"  />
   </div>
 </template>
 
 <script>
-import AboutMe    from './AboutMe.vue'
+import ContentCover    from './ContentCover.vue'
 import IntroMyslf from './IntroMyslf.vue'
 import TechStack  from './TechStack.vue'
 import ToyPrj     from './ToyPrj.vue'
@@ -20,7 +19,7 @@ import TeamPrj1   from './TeamPrj1.vue'
 import TeamPrj2   from './TeamPrj2.vue'
 import PrgSpec    from './PrgSpec.vue'
 export default {
-  components: {AboutMe, IntroMyslf, TechStack, ToyPrj, TeamPrj1, TeamPrj2, PrgSpec}, 
+  components: {ContentCover, IntroMyslf, TechStack, ToyPrj, TeamPrj1, TeamPrj2, PrgSpec}, 
   data(){
     return {
       content:'default'
