@@ -6,32 +6,13 @@
         <img v-for="(page, i) in covers" :key="i" :src="page.src" :alt="page.alt">
       </div>
       <div class="project-spec">
-        <ul class="inclusive">
-          <li>입고살자</li> <!-- 개선7) 입고살자 내어쓰기 조금만 -->
-          <li>프로젝트 설명 : ‘무신사’를 레퍼런스로 한 의류 쇼핑몰 제작</li>
-          <li>작업 기간 : 2023.03.22~2023.04.18</li>
-          <li>작업 인원 : 7명</li>
-          <li>언어 & 개발 환경
-            <ul>
-              <li>Front : HTML5, CSS3, JavaScript (ES6), Bootstrap5, jQuery, Vue.js (Vue3)</li>
-              <li>Back : Java, JSP , Spring (Legacy), SQL, MyBatis</li>
-              <li>DB & Server : MySQL 8.0 (AWS), Apache Tomcat 9.0 , Node.js</li>
-              <li>Tool : STS, VS Code</li>
-              <li>OS : Windows 10, 11</li>
-            </ul>
-          </li>
-          <li>나의 역할
-            <ul>
-              <li>1. 소비자 페이지(SPA) 제작(mixin 활용)</li>
-              <li>2. 로그인 기능 구현</li>
-              <li>3. 카카오 API를 활용한 로그인 기능 구현</li>
-              <li>4. 카테고리별 상품 데이터 연결/출력</li>
-              <li>5. 상품 검색기능 구현</li>
-              <li>6. 장바구니 등록/조회 기능 구현</li>
-              <li>7. 상품 구매 후기 CRUD 구현</li>
-            </ul>
-          </li>
-        </ul>
+        <span>두 번째 팀 프로젝트,</span>
+        <span>입고살자.</span>
+        <span>의류 쇼핑몰 제작</span>
+        <div>
+          <button>안내 자료(PDF) 다운로드</button>
+          <span><a href="https://drive.google.com/file/d/1A7Bt8dyhOv3ehiml0F_t9fM6VY5doTDS/view?usp=sharing">더 알아보기</a></span>
+        </div>
       </div>
       <div class="project-preview">
         <ul class="preview"><!-- 개선3) 사진에 마우스 hover하면 회색 바탕에 덮어쓰고 설명 보이기 -->
@@ -78,8 +59,8 @@ export default {
 
 <style scoped>
   .cont-disp {
-    width: 76vw;
-    height: 81vh;
+    width: 1168px;
+    height: 578px;
     overflow: hidden;
     position: relative;
     opacity: 0;
@@ -103,24 +84,52 @@ export default {
     margin: 1vh auto;
   }
   .project-spec {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
     width: 25%;
     height: 100%;
   }
-  ul {
-    padding-left: 1vw;
+  .project-spec span:nth-child(1) {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
   }
-  ul.inclusive{
-    margin-top: 1%;
+  .project-spec span:nth-child(2) {
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
   }
-  ul.inclusive > li {
-    padding-bottom: 1%;
+  .project-spec span:nth-child(3) {
+    font-size: 20px;
+    font-weight: bold;
+    color: grey;
+    text-align: center;
   }
-  ul.inclusive > li:first-child {
-    font-size: 60px;
+  .project-spec div {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
   }
-  li {
+  .project-spec div button {
+    width: 190px;
+    height: 30px;
+    border: none;
+    border-radius: 26px;
+    background: blue;
+    color: white;
+    font-size: 14px;
+    font-weight:bold;
+  }
+  .project-spec div span {
+    font-size: 18px !important;
+  }
+  .project-spec div span a {
+    color:blue;
     font-size: 18px;
-    list-style-type: none;
   }
   .project-preview {
     width: 50%;
@@ -139,6 +148,7 @@ export default {
     display:flex;
     justify-content: center;
     align-items: start;
+    list-style-type: none;
     width: 50%;
     height: 50%;
     margin: 0;

@@ -58,7 +58,7 @@ export default {
 
 <style>
 .lang_selec {
-  font-size: 50px;
+  font-size: 60px;
   font-weight: bold;
 }
 a {

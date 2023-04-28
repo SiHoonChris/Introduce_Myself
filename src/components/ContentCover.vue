@@ -1,10 +1,11 @@
 <template>
   <div class="cont-disp">
-    <div class="profile">
+    <div class="profile-img">
       <img :src="sihoonchris">
     </div>
-    <div class="brief">
-      <h4>{{$translate(this.$route.params.lang + ".start")}}</h4>
+    <div class="profile-exp">
+      <h1>{{$translate(this.$route.params.lang + ".best")}}</h1>
+      <span>{{$translate(this.$route.params.lang + ".new")}}</span>
     </div>
   </div>
 </template>
@@ -13,7 +14,7 @@
 export default {
   data () {
     return {
-      sihoonchris: require('@/assets/images/sihoonchris3.jpg')
+      sihoonchris: require('@/assets/images/sihoonchris0.jpg')
     }
   },
   methods:{}
@@ -22,14 +23,14 @@ export default {
 
 <style scoped>
   .cont-disp {
-    width: 76vw;
-    height: 81vh;
+    width: 1168px;
+    height: 578px;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity:0;
   }
-  .profile {
+  .profile-img {
     width: 60%;
     height: 100%;
     display: flex;
@@ -37,31 +38,30 @@ export default {
     justify-content: center;
     vertical-align: center;
   }
-  .profile img {
+  .profile-img img {
     display: block;
     width: 100%;
   }
-  .brief {
-    width: 40%;
-    height: 100%;
+  .profile-exp {
     display: flex;
     flex-direction: column;
-    align-content: center;
-    justify-content: space-between;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
   }
-  .brief h4 {
-    padding-left: 1vw;
-    margin-top: 12vh;
-  }
-  .cont-disp ul {
-    padding-left: 1vw;
-    margin-bottom: 5vh;
-  }
-  .cont-disp ul li {
-    list-style-type: none;
+  .profile-exp h1 {
+    padding-left: 20px;
+    font-size: 76px;
+    font-weight: bold;
+    margin:0;
+  } 
+  .profile-exp span {
+    padding-left: 28px;
     font-size: 20px;
+    font-weight: bold;
+    color: grey;
   }
-  .github:hover {
-    color:blue;
-  }
+  /* .profile-exp div {
+
+  } */
 </style>

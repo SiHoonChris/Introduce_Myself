@@ -1,33 +1,18 @@
 <template>
   <div class="cont-disp">
-    <div class="project-container" @click="move">
+    <div class="project-container">
       <div class="project-cover">
-        <img :src="home" style="border: 1px solid blue;">
-        <img :src="login" style="border: 1px solid blue;">
+        <img :src="home">
+        <img :src="login">
       </div>
       <div class="project-spec">
-        <ul class="inclusive">
-          <li>코드그린</li>
-          <li>설명 : 유기농 식품 쇼핑몰 제작</li>
-          <li>작업 기간 : 2023.02.10~2023.03.20</li>
-          <li>작업 인원 : 7명</li>
-          <li>언어 & 개발 환경
-            <ul>
-              <li>Front : HTML5 , CSS3 , JavaScript (ES6), Bootstrap5 , jQuery , Vue.js (Vue3)</li>
-              <li>Back : Java , SQL, JSP , Spring (Legacy) , MyBatis</li>
-              <li>DB & Server : MySQL 8.0 (AWS), Apache Tomcat 9.0 , Node.js</li>
-              <li>Tool : STS, VS Code</li>
-              <li>OS : Windows, Mac</li>
-            </ul>
-          </li>
-          <li>나의 역할
-            <ul>
-              <li>1. Vue3를 활용한 SPA 제작</li>
-              <li>2. 로그인/회원가입 기능 구현</li>
-              <li>3. 상품 데이터 추출/전시</li>
-            </ul>
-          </li>
-        </ul>
+        <span>첫 번째 팀 프로젝트,</span>
+        <span>코드그린.</span>
+        <span>식품 쇼핑몰 제작</span>
+        <div>
+          <button>안내 자료(PDF) 다운로드</button>
+          <span><a href="https://drive.google.com/file/d/1btKj_HO3NPZwv54J7_pmTwdggicE1MnC/view?usp=sharing">더 알아보기</a></span>
+        </div>
       </div>
       <div class="project-preview">
         <div class="image-container">
@@ -69,8 +54,8 @@ export default {
 
 <style scoped>
   .cont-disp {
-    width: 76vw;
-    height: 81vh;
+    width: 1168px;
+    height: 578px;
     overflow: hidden;
     position: relative;
     opacity: 0;
@@ -94,24 +79,52 @@ export default {
     margin: 1vh auto;
   }
   .project-spec {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
     width: 25%;
     height: 100%;
   }
-  ul {
-    padding-left: 1vw;
+  .project-spec span:nth-child(1) {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
   }
-  ul.inclusive{
-    margin-top: 1%;
+  .project-spec span:nth-child(2) {
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
   }
-  ul.inclusive > li {
-    padding-bottom: 1%;
+  .project-spec span:nth-child(3) {
+    font-size:20px;
+    font-weight:bold;
+    color:grey;
+    text-align:center;
   }
-  ul.inclusive > li:first-child {
-    font-size: 60px;
+  .project-spec div {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
   }
-  li {
+  .project-spec div button {
+    width: 190px;
+    height: 30px;
+    border: none;
+    border-radius: 26px;
+    background: blue;
+    color: white;
+    font-size: 14px;
+    font-weight:bold;
+  }
+  .project-spec div span {
+    font-size: 18px !important;
+  }
+  .project-spec div span a {
+    color:blue;
     font-size: 18px;
-    list-style-type: none;
   }
   .project-preview {
     display: flex;

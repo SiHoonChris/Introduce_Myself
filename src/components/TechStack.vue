@@ -1,8 +1,8 @@
 <template>
   <div class="cont-disp">
     <div>
-      <span>기술 스택</span>
-      <span>지금 이 순간에도 발전하고 있습니다.</span>
+      <span>기술 스택.</span>
+      <span>지금 이 순간에도 발전하는 중.</span>
     </div>
     <img v-for="(skill, i) in tech" :key="i" :src="skill.src" :alt="skill.alt" :style="skill.style">
   </div>
@@ -75,9 +75,8 @@ export default {
 
 <style scoped>
   .cont-disp {
-    width: 76vw;
-    height: 81vh;
-    border: 1px solid red;
+    width: 1168px;
+    height: 578px;
     position: relative;
     opacity:0;
   }
@@ -90,13 +89,16 @@ export default {
   }
   .cont-disp div span:first-child {
     display: block;
-    font-size: 60px;
+    font-size: 64px;
+    font-weight: bold;
   }
   .cont-disp div span:last-child {
     display: block;
     opacity: 0;
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
+    font-weight: bold;
+    color:grey;
   }
   img {
     display: block;

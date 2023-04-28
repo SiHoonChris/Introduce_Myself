@@ -1,15 +1,11 @@
 <template>
-  <div class="menu-area" @mouseenter="activateMenu(0, 1.0, 0)" @mouseleave="activateMenu(13.4, 1.6, 0)">
+  <div class="menu-area" @mouseenter="activateMenu(0, 1.0, 0)" @mouseleave="activateMenu(98, 1.6, 0)">
     <div class="menu-bar">
       <div class="menu-content">
         <ul>
-          <li><img :src="healthicon"   @click="showContents('AM')"></li>
-          <li><img :src="memoicon"     @click="showContents('IM')"></li>
-          <li><img :src="remindericon" @click="showContents('TS')"></li>
-          <li><img :src="imageicon"    @click="showContents('ToyPrj')"></li>
-          <li><img :src="itunesicon"   @click="showContents('TPrj1')"></li>
-          <li><img :src="appstoreicon" @click="showContents('TPrj2')"></li>
-          <li><img :src="settingicon"  @click="showContents('Spec')"></li>
+          <li v-for="(icon, i) in icons" :key="i">
+            <img :src="icon.src" @click="showContents(icon.keyword)">
+          </li>
         </ul>
       </div>
     </div>
@@ -20,24 +16,26 @@
 export default {
   data () { 
     return {
-      healthicon:   require("@/assets/icons/health-icon.png"),
-      memoicon:     require("@/assets/icons/memo-icon.png"),
-      remindericon: require("@/assets/icons/reminder-icon.png"),
-      imageicon:    require("@/assets/icons/image-icon.png"),
-      itunesicon:   require("@/assets/icons/itunes-icon.png"),
-      appstoreicon: require("@/assets/icons/appstore-icon.png"),
-      settingicon:  require("@/assets/icons/setting-icon.png")
+      icons:[
+        { src: require("@/assets/icons/health-icon.png"),   keyword:'AM'     },
+        { src: require("@/assets/icons/memo-icon.png"),     keyword:'IM'     },
+        { src: require("@/assets/icons/reminder-icon.png"), keyword:'TS'     },
+        { src: require("@/assets/icons/image-icon.png"),    keyword:'ToyPrj' },
+        { src: require("@/assets/icons/itunes-icon.png"),   keyword:'TPrj1'  },
+        { src: require("@/assets/icons/appstore-icon.png"), keyword:'TPrj2'  },
+        { src: require("@/assets/icons/setting-icon.png"),  keyword:'Spec'   }
+      ]
     }
   },
   mounted(){
-    this.activateMenu(0, 1.4, 1600)
-    this.activateMenu(13.4, 1.6, 3200)
+    this.activateMenu(0, 1.4, 1400)
+    this.activateMenu(98, 1.6, 3500)
   },
-  methods: { // 개선1) menu-bar가 들어가도 menu-area 영역은 유지되도록 수정
+  methods: {
     activateMenu(length, speed, delay){
-      const menu = document.querySelector(".menu-bar")
+      const menu = document.querySelector(".menu-area")
       setTimeout(()=>{
-        menu.style.marginTop=length+"vh"
+        menu.style.paddingTop=length+"px"
         menu.style.transition=speed+"s ease-in-out"
       }, delay)
     },
@@ -50,19 +48,20 @@ export default {
 
 <style scoped>
   .menu-area {
-    width: 100vw;
-    height: 13vh;
+    width: 100%;
+    height: 92.8px;
+    padding-top: 98px;
   }
   .menu-bar {
     background : lightgrey;
-    width: 40vw;
-    height: 12vh;
+    width: 40%;
+    height: 85.625px;
     border-radius: 24px;
-    margin: 16vh auto;
+    margin: 0 auto;
   }
   .menu-content {
-    width: 40vw;
-    height: 12vh;
+    width: 100%;
+    height: 100%;
     background: none;
     overflow: hidden;
   }
@@ -82,11 +81,11 @@ export default {
     justify-content: center;
   }
   .menu-content > ul li:not(:last-child) {
-    margin-right: 1vw;
+    margin-right: 15.36px;
   }
   .menu-content img {
-    width: 10vh;
-    height: 10vh;
+    width: 71.35px;
+    height: 71.35px;
     cursor: pointer;
   }
 </style>
