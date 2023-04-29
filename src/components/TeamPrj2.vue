@@ -108,7 +108,7 @@ export default {
     text-align: center;
   }
   .project-spec div {
-    width: 300px;
+    width: 320px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -123,13 +123,21 @@ export default {
     color: white;
     font-size: 14px;
     font-weight:bold;
+    cursor: pointer;
   }
   .project-spec div span {
     font-size: 18px !important;
   }
+  .project-spec div span::after {
+    content: ' >';
+    color: blue;
+  }
   .project-spec div span a {
     color:blue;
     font-size: 18px;
+  }
+  .project-spec div span a:hover {
+    text-decoration: underline;
   }
   .project-preview {
     width: 50%;

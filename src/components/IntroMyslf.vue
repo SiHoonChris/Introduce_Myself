@@ -31,9 +31,9 @@
               <span>상명대학교(경제금융학부)</span>
             </li>
             <li>
-              <a class="github" href="https://github.com/SiHoonChris">
-                <span>깃허브로 이동하기</span>
-              </a>
+              <span class="github">
+                <a href="https://github.com/SiHoonChris">깃허브로 이동하기</a>
+              </span>
             </li>
           </ul>
         </div>
@@ -172,15 +172,17 @@ export default {
     font-size: 16px;
     color: grey;
   }
-  .github {
+  .github a {
     color: blue;
+    font-size: 16px;
   }
-  .github:hover {
+  .github a:hover {
     text-decoration: underline;
-    transform: rotateY(0.5turn);
   }
-  .github span:after {
-    content: ">";
+  .github:after {
+    content: " >";
+    font-size: 16px;
+    color: blue;
   }
   .properties {
     width: 70%;
@@ -226,8 +228,4 @@ export default {
   .strength ul li span {
     font-size: 20px;
   }
-
-
-
-  
 </style>

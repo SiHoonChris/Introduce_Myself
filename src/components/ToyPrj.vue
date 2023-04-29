@@ -1,4 +1,4 @@
-<template><!--여기 뿐만 아니라 전반적인 멘트를 다 애플 카피라이트스럽게-->
+<template>
   <div class="cont-disp">
     <div class="project-container">
       <div class="project-spec">
@@ -93,7 +93,7 @@ export default {
     text-align:center;
   }
   .project-spec div {
-    width: 300px;
+    width: 320px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -108,13 +108,21 @@ export default {
     color: white;
     font-size: 14px;
     font-weight:bold;
+    cursor: pointer;
   }
   .project-spec div span {
     font-size: 18px !important;
   }
+  .project-spec div span::after {
+    content: ' >';
+    color: blue;
+  }
   .project-spec div span a {
     color:blue;
     font-size: 18px;
+  }
+  .project-spec div span a:hover {
+    text-decoration: underline;
   }
   .project-cover img {
     display: block;
