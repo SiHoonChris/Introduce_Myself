@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-area" @mouseenter="activateMenu(0, 1.0, 0)" @mouseleave="activateMenu(98, 1.6, 0)">
+  <div class="menu-area" @mouseenter="activateMenu(0, 0.8, 0)" @mouseleave="activateMenu(98, 1.3, 0)">
     <div class="menu-bar">
       <div class="menu-content">
         <ul>
@@ -28,8 +28,8 @@ export default {
     }
   },
   mounted(){
-    this.activateMenu(0, 1.4, 1400)
-    this.activateMenu(98, 1.6, 3500)
+    this.activateMenu(0, 1.3, 1400)
+    this.activateMenu(98, 1.5, 3500)
   },
   methods: {
     activateMenu(length, speed, delay){

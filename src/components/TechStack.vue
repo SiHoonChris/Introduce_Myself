@@ -13,16 +13,17 @@ export default {
   data () {
     return {
       tech: [
-        { src:require('@/assets/tech/html5-img.png'),     alt:'FE-HTML5',      style:"width: 14vh; height: 12vh;" },
-        { src:require('@/assets/tech/css3-img.png'),      alt:'FE-CSS3',       style:"width: 10vh; height: 12vh;" },
-        { src:require('@/assets/tech/js-img.png'),        alt:'FE-JavsScript', style:"width: 10vh; height: 12vh;" },
-        { src:require('@/assets/tech/jquery-img.png'),    alt:'FE-jQuery',     style:"width: 13vh; height: 13vh;" },
-        { src:require('@/assets/tech/vue-img.png'),       alt:'FE-Vue3',       style:"width: 12vh; height: 12vh;" },
-        { src:require('@/assets/tech/bootstrap-img.png'), alt:'FE-Bootstrap',  style:"width: 12vh; height: 11vh;" },
-        { src:require('@/assets/tech/java-img.png'),      alt:'BE-Java',       style:"width: 14vh; height: 14vh;" },
-        { src:require('@/assets/tech/spring-img.png'),    alt:'BE-Spring',     style:"width: 12vh; height: 12vh;" },
-        { src:require('@/assets/tech/python-img.png'),    alt:'BE-Python',     style:"width: 12vh; height: 12vh;" },
-        { src:require('@/assets/tech/mysql-img.png'),     alt:'BE-MySQL',      style:"width: 12vh; height: 12vh;" },
+        { src:require('@/assets/tech/html5-img.png'),     alt:'FE-HTML5',      style:"width: 85px; height: 85px;"   },
+        { src:require('@/assets/tech/css3-img.png'),      alt:'FE-CSS3',       style:"width: 85px; height: 85px;"   },
+        { src:require('@/assets/tech/js-img.png'),        alt:'FE-JavsScript', style:"width: 85px; height: 85px;"   },
+        { src:require('@/assets/tech/jquery-img.png'),    alt:'FE-jQuery',     style:"width: 85px; height: 85px;"   },
+        { src:require('@/assets/tech/vue-img.png'),       alt:'FE-Vue3',       style:"width: 85px; height: 85px;"   },
+        { src:require('@/assets/tech/bootstrap-img.png'), alt:'FE-Bootstrap',  style:"width: 85px; height: 85px;"   },
+        { src:require('@/assets/tech/java-img.png'),      alt:'BE-Java',       style:"width: 85px; height: 85px;"   },
+        { src:require('@/assets/tech/spring-img.png'),    alt:'BE-Spring',     style:"width: 85px; height: 85px;"   },
+        { src:require('@/assets/tech/python-img.png'),    alt:'BE-Python',     style:"width: 85px; height: 85px;"   },
+        { src:require('@/assets/tech/mysql-img.png'),     alt:'BE-MySQL',      style:"width: 85px; height: 85px;"   },
+        { src:require('@/assets/tech/node-img.png'),      alt:'BE-NodeJs',     style:"width: 85px; height: 85px;"   }
       ]
     }
   },
@@ -46,26 +47,26 @@ export default {
     randomLoc(){
       const skills = document.querySelectorAll(".cont-disp img")
       for(const skill of skills){
-        skill.style.top = Math.random()*70+"vh"
-        skill.style.left = Math.random()*70+"vw"
+        skill.style.top  = Math.random()*490+"px"
+        skill.style.left = Math.random()*1070+"px"
       }
     },
     locSetter(){
       const skills = document.querySelectorAll(".cont-disp img")
-      let feHLoc = 30
-      let beHLoc = 30
+      let feHLoc = 460
+      let beHLoc = 460
       for(const skill of skills){
         if(skill.alt.startsWith('FE')){
-          skill.style.top = "14vh"
-          skill.style.left = feHLoc+"vw"
+          skill.style.top = "90px"
+          skill.style.left = feHLoc+"px"
           skill.style.transition = "2s ease-out"
-          feHLoc += Number(skill.style.width.slice(0,2))/2
+          feHLoc += Number(skill.style.width.slice(0,2))+10
         }
         else {
-          skill.style.top = "54vh"
-          skill.style.left = beHLoc+"vw"
+          skill.style.top = "400px"
+          skill.style.left = beHLoc+"px"
           skill.style.transition = "2s ease-out"
-          beHLoc += Number(skill.style.width.slice(0,2))/2
+          beHLoc += Number(skill.style.width.slice(0,2))+10
         }
       }
     }
@@ -78,7 +79,7 @@ export default {
     width: 1168px;
     height: 578px;
     position: relative;
-    opacity:0;
+    opacity: 0;
   }
   .cont-disp div {
     position: absolute;
@@ -98,7 +99,7 @@ export default {
     font-size: 18px;
     text-align: center;
     font-weight: bold;
-    color:grey;
+    color: grey;
   }
   img {
     display: block;

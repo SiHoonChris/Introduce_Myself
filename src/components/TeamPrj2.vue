@@ -10,8 +10,14 @@
         <span>입고살자.</span>
         <span>의류 쇼핑몰 제작</span>
         <div>
-          <button>안내 자료(PDF) 다운로드</button>
-          <span><a href="https://drive.google.com/file/d/1A7Bt8dyhOv3ehiml0F_t9fM6VY5doTDS/view?usp=sharing">더 알아보기</a></span>
+          <button>
+            <span @click="newTab('https://drive.google.com/file/d/1A7Bt8dyhOv3ehiml0F_t9fM6VY5doTDS/view?usp=sharing')">
+              안내 자료(PDF) 다운로드
+            </span>
+          </button>
+          <button>
+            <span @click="move(-50)">더 알아보기</span>
+          </button>
         </div>
       </div>
       <div class="project-preview">
@@ -20,13 +26,9 @@
         </ul>
       </div>
     </div>
-    <div class="btns"> <!-- click 하면 darkgrey, radio button으로 바꾼다??-->
-      <svg @click="move(0)" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="darkgrey" class="bi bi-circle-fill" viewBox="0 0 16 16">
-        <circle cx="8" cy="8" r="8"/>
-      </svg>&nbsp;
-      <svg @click="move(-50)" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="lightgrey" class="bi bi-circle-fill" viewBox="0 0 16 16">
-        <circle cx="8" cy="8" r="8"/>
-      </svg>
+    <div class="btns">
+      <input type="radio" v-bind:value="0" v-model="range">
+      <input type="radio" v-bind:value="-50" v-model="range">
     </div>
   </div>
 </template>
@@ -44,11 +46,19 @@ export default {
         {src:require('@/assets/team-prj2/tp2detail.png'),   alt:'상품 상세 페이지 입니다.'},
         {src:require('@/assets/team-prj2/tp2cart.png'),     alt:'장바구니 페이지 입니다.' },
         {src:require('@/assets/team-prj2/tp2payment.png'),  alt:'장바구니 페이지 입니다.' }
-      ] 
+      ], 
+      range: 0
     }
   },
+  watch:{
+    range(){this.move(this.range)}
+  },
   methods:{
+    newTab(url){
+      window.open(url)
+    },
     move(range){
+      this.range=range
       const disp = document.querySelector(".project-container")
       disp.style.transform="translateX("+range+"%)"
       disp.style.transition="0.6s linear"
@@ -81,7 +91,7 @@ export default {
   .project-cover img {
     display: block;
     height: 46%;
-    margin: 1vh auto;
+    margin: 7.136px auto;
   }
   .project-spec {
     display:flex;
@@ -114,30 +124,36 @@ export default {
     justify-content: space-between;
     margin-top: 30px;
   }
-  .project-spec div button {
+  .project-spec div button:first-child {
     width: 190px;
     height: 30px;
     border: none;
     border-radius: 26px;
     background: blue;
-    color: white;
-    font-size: 14px;
-    font-weight:bold;
     cursor: pointer;
   }
-  .project-spec div span {
-    font-size: 18px !important;
+  .project-spec div button:first-child span {
+    color:white;
+    font-size: 14px;
+    font-weight: bold;
   }
-  .project-spec div span::after {
-    content: ' >';
-    color: blue;
+  .project-spec div button:last-child {
+    background: none;
+    border: none;
+    padding: 0;
   }
-  .project-spec div span a {
+  .project-spec div button:last-child span {
     color:blue;
     font-size: 18px;
   }
-  .project-spec div span a:hover {
+  .project-spec div button:last-child span:hover {
     text-decoration: underline;
+    cursor: pointer;
+  }
+  .project-spec div button:last-child::after {
+    content: ' >';
+    color: blue;
+    font-size: 18px;
   }
   .project-preview {
     width: 50%;
@@ -155,7 +171,7 @@ export default {
   ul.preview li {
     display:flex;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
     list-style-type: none;
     width: 50%;
     height: 50%;
@@ -176,10 +192,19 @@ export default {
     height: 5%;
     position: absolute;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
   }
-  .btns svg {
-    cursor: pointer;
+  input[type="radio"] {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border: 1px solid lightgrey;
+    border-radius: 50%;
+    background: lightgrey;
+  }
+  input[type="radio"]:checked {
+    border: 1px solid darkgrey;
+    background: darkgrey;
   }
 </style>

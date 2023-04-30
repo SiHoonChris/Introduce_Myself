@@ -19,8 +19,8 @@
               <span>서울특별시 강북구</span>
             </li>
             <li>
-              <span>{{$translate(this.$route.params.lang + ".birthdate1")}}</span>&nbsp;
-              <span>{{$translate(this.$route.params.lang + ".birthdate2")}}</span>
+              <span>생년월일</span>&nbsp;
+              <span>1997년 4월 26일 (만 {{age}}세)</span>
             </li>
             <li>
               <span>이메일</span>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -31,9 +31,11 @@
               <span>상명대학교(경제금융학부)</span>
             </li>
             <li>
-              <span class="github">
-                <a href="https://github.com/SiHoonChris">깃허브로 이동하기</a>
-              </span>
+              <button class="github">
+                <span @click="newTab('https://github.com/SiHoonChris')">
+                  깃허브로 이동하기
+                </span>
+              </button>
             </li>
           </ul>
         </div>
@@ -96,17 +98,33 @@ export default {
       battery: require("@/assets/properties/battery.png"),
       globe: require("@/assets/properties/globe.png"),
       communication: require("@/assets/properties/communication.png"),
-      adaptation: require("@/assets/properties/adaptation.png")
+      adaptation: require("@/assets/properties/adaptation.png"),
+      age: 0,
+      appear: null
     }
   },
+  created(){
+    const today = new Date()
+    const birth = new Date(1997, 4, 26)
+
+    this.age = today.getFullYear() - birth.getFullYear();
+    const m = (today.getMonth() + 1) - birth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {this.age--}
+  },
   mounted(){
-    setTimeout(()=>{
+    this.appear = setTimeout(()=>{
       const title = document.querySelector(".property-container")
       title.style.transform="translateY(-50%)"
       title.style.transition = "1.0s ease-out"
-    }, 1200)
+    }, 1000)
+  },
+  beforeUnmount(){
+    clearTimeout(this.appear)
   },
   methods:{
+    newTab(url){
+      window.open(url)
+    },
     changeImg(img){
       document.querySelector('.images img').src=img
     }
@@ -172,12 +190,18 @@ export default {
     font-size: 16px;
     color: grey;
   }
-  .github a {
+  .github {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .github span {
     color: blue;
     font-size: 16px;
   }
-  .github a:hover {
+  .github span:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
   .github:after {
     content: " >";

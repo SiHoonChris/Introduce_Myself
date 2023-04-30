@@ -3,19 +3,19 @@
     <ul>
       <li>About This Portfolio</li>
       <li>Author : Si-Hoon Lee</li>
-      <li>Tech Stack : Mongo DB, Express.js, Vue.js(Vue3), Node.js, EC2</li>
+      <li>Tech Stack : MySQL, Express.js, Vue.js(Vue3), Node.js, EC2</li> <!--MongoDB로 바꿀 예정-->
       <li>Duration : 2023.04.20 ~ 2023.04.XX</li>
       <li>E-mail : chrisleegpock@gmail.com</li>
       <li>GitHub : https://github.com/SiHoonChris/Introduce_Myself</li>
-      <li>Visitors : ? (since May 1st., 2023)</li> <!-- Server & DB 활용, 누적 방문자수 기록 -->
+      <li>Visitors : ? (since May 1st., 2023)</li>
     </ul>
   </div>
 </template>
 
 <style scoped>
-  .cont-disp{
-    width: 76vw;
-    height: 81vh;
+  .cont-disp {
+    width: 1168px;
+    height: 578px;
     position: relative;
     opacity: 0;
   }

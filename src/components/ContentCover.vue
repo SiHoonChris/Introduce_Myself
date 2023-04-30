@@ -61,7 +61,4 @@ export default {
     font-weight: bold;
     color: grey;
   }
-  /* .profile-exp div {
-
-  } */
 </style>

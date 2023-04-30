@@ -6,8 +6,14 @@
         <span>직접 해봐야죠.</span>
         <span>저의 토이 프로젝트들을 확인해보세요.</span>
         <div>
-          <button>안내 자료(PDF) 다운로드</button>
-          <span><a href="https://drive.google.com/file/d/1-6I5erTevVCM-WdDDc_9Y42yfUw6Fv-r/view?usp=sharing">더 알아보기</a></span>
+          <button>
+            <span @click="newTab('https://drive.google.com/file/d/1-6I5erTevVCM-WdDDc_9Y42yfUw6Fv-r/view?usp=sharing')">
+              안내 자료(PDF) 다운로드
+            </span>
+          </button>
+          <button>
+            <span @click="move(-50)">더 알아보기</span>
+          </button>
         </div>
       </div>
       <div class="project-python">
@@ -18,12 +24,8 @@
       </div>
     </div>
     <div class="btns">
-      <svg @click="move(0)" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="darkgrey" class="bi bi-circle-fill" viewBox="0 0 16 16">
-        <circle cx="8" cy="8" r="8"/>
-      </svg>&nbsp;
-      <svg @click="move(-50)" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="lightgrey" class="bi bi-circle-fill" viewBox="0 0 16 16">
-        <circle cx="8" cy="8" r="8"/>
-      </svg>
+      <input type="radio" v-bind:value="0" v-model="range">
+      <input type="radio" v-bind:value="-50" v-model="range">
     </div>
   </div>
 </template>
@@ -40,11 +42,19 @@ export default {
         { src:require('@/assets/toy-prj/tpBlackJack.png'),     alt:'블랙잭'                },
         { src:require('@/assets/toy-prj/tpMineSweeper.gif'),   alt:'지뢰찾기'              },
         { src:require('@/assets/toy-prj/tpPortfolioAuto.gif'), alt:'투자 포트폴리오 자동화' }
-      ] 
+      ],
+      range: 0
     }
   },
+  watch:{
+    range(){this.move(this.range)}
+  },
   methods:{
+    newTab(url){
+      window.open(url)
+    },
     move(range){
+      this.range=range
       const disp = document.querySelector(".project-container")
       disp.style.transform="translateX("+range+"%)"
       disp.style.transition="0.6s linear"
@@ -69,9 +79,9 @@ export default {
     position: absolute;
   }
   .project-spec {
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 25%;
     height: 100%;
@@ -99,35 +109,36 @@ export default {
     justify-content: space-between;
     margin-top: 30px;
   }
-  .project-spec div button {
+  .project-spec div button:first-child {
     width: 190px;
     height: 30px;
     border: none;
     border-radius: 26px;
     background: blue;
-    color: white;
-    font-size: 14px;
-    font-weight:bold;
     cursor: pointer;
   }
-  .project-spec div span {
-    font-size: 18px !important;
+  .project-spec div button:first-child span {
+    color:white;
+    font-size: 14px;
+    font-weight: bold;
   }
-  .project-spec div span::after {
-    content: ' >';
-    color: blue;
+  .project-spec div button:last-child {
+    background: none;
+    border: none;
+    padding: 0;
   }
-  .project-spec div span a {
+  .project-spec div button:last-child span {
     color:blue;
     font-size: 18px;
   }
-  .project-spec div span a:hover {
+  .project-spec div button:last-child span:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
-  .project-cover img {
-    display: block;
-    height: 46%;
-    margin: 1vh auto;
+  .project-spec div button:last-child::after {
+    content: ' >';
+    color: blue;
+    font-size: 18px;
   }
   .project-python {
     display: flex;
@@ -151,10 +162,19 @@ export default {
     height: 5%;
     position: absolute;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
   }
-  .btns svg {
-    cursor: pointer;
+  input[type="radio"] {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border: 1px solid lightgrey;
+    border-radius: 50%;
+    background: lightgrey;
+  }
+  input[type="radio"]:checked {
+    border: 1px solid darkgrey;
+    background: darkgrey;
   }
 </style>
