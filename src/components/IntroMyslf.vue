@@ -39,44 +39,52 @@
             </li>
           </ul>
         </div>
-      <div class="properties"><!--마우스 올리면 카드처럼 뒤집어지면서 세부내용-->
+      <div class="properties">
         <div class="strength">
           <ul>
-            <li @mouseover="changeImg(SiHoonChris2)" @mouseout="changeImg(SiHoonChris1)">
-              <div class="front">
-                <div><img :src="communication"></div>
-                <span>명확한 의사소통</span>
-              </div>
-              <div class="back" style="display:none;">
-                <span>팀의 정확히 니즈를 파악, 효율적으로 작업 내용을 공유</span>
-              </div>
-            </li>
-            <li @mouseover="changeImg(SiHoonChris3)" @mouseout="changeImg(SiHoonChris1)">
-              <div class="front">
-                <div><img :src="adaptation"></div>
-                <span>빠른 적응</span>
-              </div>
-              <div class="back" style="display:none;">
-                <span>어떤 팀에서든 빠르게 적응</span>
+            <li class="flip-card" @mouseover="changeImg(SiHoonChris2)" @mouseout="changeImg(SiHoonChris1)">
+              <div class="card-inner">
+                <div class="flip-front">
+                  <div><img :src="communication"></div>
+                  <span>명확한 의사소통</span>
+                </div>
+                <div class="flip-back">
+                  <span>팀의 정확히 니즈를 파악, 효율적으로 작업 내용을 공유</span>
+                </div>
               </div>
             </li>
-            <li @mouseover="changeImg(SiHoonChris4)" @mouseout="changeImg(SiHoonChris1)">
-              <div class="front">
-                <div><img :src="globe"></div>
-                <span>영어</span>
-              </div>
-              <div class="back" style="display:none;">
-                <span>언어별 웹사이트 정보량 영어가 56%</span>
+            <li class="flip-card" @mouseover="changeImg(SiHoonChris3)" @mouseout="changeImg(SiHoonChris1)">
+              <div class="card-inner">
+                <div class="flip-front">
+                  <div><img :src="adaptation"></div>
+                  <span>빠른 적응</span>
+                </div>
+                <div class="flip-back">
+                  <span>어떤 팀에서든 빠르게 적응</span>
+                </div>
               </div>
             </li>
-            <li @mouseover="changeImg(SiHoonChris5)" @mouseout="changeImg(SiHoonChris1)">
-              <div class="front">
-                <div><img :src="battery"></div>
-                <span>강한 체력</span>
+            <li class="flip-card" @mouseover="changeImg(SiHoonChris4)" @mouseout="changeImg(SiHoonChris1)">
+              <div class="card-inner">
+                <div class="flip-front">
+                  <div><img :src="globe"></div>
+                  <span>영어</span>
+                </div>
+                <div class="flip-back">
+                  <span>언어별 웹사이트 정보량 영어가 56%</span>
+                </div>
               </div>
-              <div class="back" style="display:none;">
-                <span>체력이 없다면 정신력은 듣기 좋은 구호일 뿐이죠. 체력과 이를 통해 구현된 승부욕</span>
-               </div>
+            </li>
+            <li class="flip-card" @mouseover="changeImg(SiHoonChris5)" @mouseout="changeImg(SiHoonChris1)">
+              <div class="card-inner">
+                <div class="flip-front">
+                  <div><img :src="battery"></div>
+                  <span>강한 체력</span>
+                </div>
+                <div class="flip-back">
+                  <span>체력이 없다면 정신력은 듣기 좋은 구호일 뿐이죠. 체력과 이를 통해 구현된 승부욕</span>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -122,9 +130,7 @@ export default {
     clearTimeout(this.appear)
   },
   methods:{
-    newTab(url){
-      window.open(url)
-    },
+    newTab(url){open(url)},
     changeImg(img){
       document.querySelector('.images img').src=img
     }
@@ -225,31 +231,49 @@ export default {
     padding:0;
     justify-content:left
   }
-  .strength ul li {
+  .flip-card {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50%;
     height: 50%;
+    perspective: 1000px;
   }
-  .strength ul li:hover{
-    background: lightgrey;
+  .flip-card span {
+    font-size: 20px;
   }
-  .front {
+  .card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  .flip-card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-front, .flip-back {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
-  .front div {
+  .flip-front {
+    color: black;
+  }
+  .flip-front div {
     width: 60px;
     height: 60px;
   }
-  .front div img {
+  .flip-front div img {
     width: 100%;
     height: 100%;
   }
-  .strength ul li span {
-    font-size: 20px;
+  .flip-back {
+    background: grey;
+    color: white;
+    transform: rotateY(180deg);
   }
+  
 </style>

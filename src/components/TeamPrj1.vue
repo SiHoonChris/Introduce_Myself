@@ -6,7 +6,7 @@
         <img :src="login">
       </div>
       <div class="project-spec">
-        <span>첫 번째 팀 프로젝트,</span>
+        <span>처음 해본 팀 프로젝트,</span>
         <span>코드그린.</span>
         <span>식품 쇼핑몰 제작</span>
         <div>
@@ -49,9 +49,7 @@ export default {
     range(){this.move(this.range)}
   },
   methods:{
-    newTab(url){
-      window.open(url)
-    },
+    newTab(url){open(url)},
     move(range){
       this.range=range
       const disp = document.querySelector(".project-container")
@@ -85,7 +83,8 @@ export default {
   }
   .project-cover img {
     display: block;
-    height: 46%;
+    width: 472px;
+    height: 265px;
     margin: 7.136px auto;
   }
   .project-spec {

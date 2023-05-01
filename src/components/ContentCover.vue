@@ -12,12 +12,7 @@
 
 <script>
 export default {
-  data () {
-    return {
-      sihoonchris: require('@/assets/images/sihoonchris0.jpg')
-    }
-  },
-  methods:{}
+  data() {return {sihoonchris: require('@/assets/images/sihoonchris0.jpg')}}
 }
 </script>
 

@@ -17,10 +17,16 @@
         </div>
       </div>
       <div class="project-python">
-        <img v-for="(prg, i) in pythonPrj" :key="i" :src="prg.src" :alt="prg.alt" style="width:30vw; height:40vh;">
+        <img v-for="(prg, i) in pythonPrj" :key="i" :src="prg.src" :alt="prg.alt">
       </div>
       <div class="project-java">
-        <img v-for="(prg, i) in javaPrj" :key="i" :src="prg.src" :alt="prg.alt" style="width:30vw; height:40vh;">
+        <div>
+          <img :src="javaPrj[0].src" :alt="javaPrj[0].alt">
+          <img :src="javaPrj[2].src" :alt="javaPrj[2].alt">
+        </div>
+        <div>
+          <img :src="javaPrj[1].src" :alt="javaPrj[1].alt">
+        </div>
       </div>
     </div>
     <div class="btns">
@@ -36,7 +42,7 @@ export default {
     return {
       pythonPrj:[
         { src:require('@/assets/toy-prj/tpReportDownloader.png'), alt:'재무제표 다운로더' },
-        { src:require('@/assets/toy-prj/tpChart.png'),            alt:'주식 보조지표'    },  
+        { src:require('@/assets/toy-prj/tpChart.png'),            alt:'주식 보조지표'     },  
       ],
       javaPrj: [
         { src:require('@/assets/toy-prj/tpBlackJack.png'),     alt:'블랙잭'                },
@@ -50,9 +56,7 @@ export default {
     range(){this.move(this.range)}
   },
   methods:{
-    newTab(url){
-      window.open(url)
-    },
+    newTab(url){open(url)},
     move(range){
       this.range=range
       const disp = document.querySelector(".project-container")
@@ -154,6 +158,25 @@ export default {
     align-items: center;
     width: 50%;
     height: 100%;
+  }
+  .project-java div {
+    width:50%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-java div:last-child {
+    justify-content: center;;
+  }
+  img {
+    width: 472px;
+    height: 264px;
+    margin: 7.136px auto;
+  }
+  .project-java div:last-child img {
+    width: 300px;
+    height: 360px;
+    margin: 7.136px auto;
   }
   .btns {
     z-index: 1;
