@@ -7,7 +7,7 @@
       <div class="info-detail">
         <div class="basic-info">
           <div class="images">
-            <img :src="SiHoonChris1">
+            <img :src="SiHoonChris">
           </div>
           <ul class="infos">
             <li>
@@ -42,47 +42,15 @@
       <div class="properties">
         <div class="strength">
           <ul>
-            <li class="flip-card" @mouseover="changeImg(SiHoonChris2)" @mouseout="changeImg(SiHoonChris1)">
+            <li class="flip-card" v-for="(property, i) in strength" :key='i' 
+            @mouseover="changeImg(property.pic)" @mouseout="changeImg(SiHoonChris)">
               <div class="card-inner">
                 <div class="flip-front">
-                  <div><img :src="communication"></div>
-                  <span>명확한 의사소통</span>
+                  <div><img :src="property.src"></div>
+                  <span>{{property.def}}</span>
                 </div>
                 <div class="flip-back">
-                  <span>팀의 정확히 니즈를 파악, 효율적으로 작업 내용을 공유</span>
-                </div>
-              </div>
-            </li>
-            <li class="flip-card" @mouseover="changeImg(SiHoonChris3)" @mouseout="changeImg(SiHoonChris1)">
-              <div class="card-inner">
-                <div class="flip-front">
-                  <div><img :src="adaptation"></div>
-                  <span>빠른 적응</span>
-                </div>
-                <div class="flip-back">
-                  <span>어떤 팀에서든 빠르게 적응</span>
-                </div>
-              </div>
-            </li>
-            <li class="flip-card" @mouseover="changeImg(SiHoonChris4)" @mouseout="changeImg(SiHoonChris1)">
-              <div class="card-inner">
-                <div class="flip-front">
-                  <div><img :src="globe"></div>
-                  <span>영어</span>
-                </div>
-                <div class="flip-back">
-                  <span>언어별 웹사이트 정보량 영어가 56%</span>
-                </div>
-              </div>
-            </li>
-            <li class="flip-card" @mouseover="changeImg(SiHoonChris5)" @mouseout="changeImg(SiHoonChris1)">
-              <div class="card-inner">
-                <div class="flip-front">
-                  <div><img :src="battery"></div>
-                  <span>강한 체력</span>
-                </div>
-                <div class="flip-back">
-                  <span>체력이 없다면 정신력은 듣기 좋은 구호일 뿐이죠. 체력과 이를 통해 구현된 승부욕</span>
+                  <span>{{property.exp}}</span>
                 </div>
               </div>
             </li>
@@ -98,15 +66,33 @@
 export default {
   data () {
     return {
-      SiHoonChris1: require("@/assets/images/sihoonchris1.jpg"),
-      SiHoonChris2: require("@/assets/images/sihoonchris2.jpg"),
-      SiHoonChris3: require("@/assets/images/sihoonchris3.jpg"),
-      SiHoonChris4: require("@/assets/images/sihoonchris4.jpg"),
-      SiHoonChris5: require("@/assets/images/sihoonchris5.jpg"),
-      battery: require("@/assets/properties/battery.png"),
-      globe: require("@/assets/properties/globe.png"),
-      communication: require("@/assets/properties/communication.png"),
-      adaptation: require("@/assets/properties/adaptation.png"),
+      SiHoonChris: require("@/assets/images/sihoonchris1.jpg"),
+      strength: [
+        { 
+          src: require("@/assets/properties/communication.png"),
+          def: '명확한 의사소통',
+          pic: require("@/assets/images/sihoonchris2.jpg"),
+          exp: '군대는 소통이 생명'
+        },
+        { 
+          src: require("@/assets/properties/battery.png"), 
+          def: '강한 체력',
+          pic: require("@/assets/images/sihoonchris5.jpg"),
+          exp: '체력 없는 정신력은 허상'
+        },
+        { 
+          src: require("@/assets/properties/adaptation.png"), 
+          def: '빠른 적응',
+          pic: require("@/assets/images/sihoonchris3.jpg"),
+          exp: '어디든, 누구든'
+        },
+        { 
+          src: require("@/assets/properties/globe.png"), 
+          def: '영어',
+          pic: require("@/assets/images/sihoonchris4.jpg"),
+          exp: '웹 상의 정보 중 56%가 영어로 작성됨'
+        }
+      ],
       age: 0,
       appear: null
     }
@@ -131,9 +117,7 @@ export default {
   },
   methods:{
     newTab(url){open(url)},
-    changeImg(img){
-      document.querySelector('.images img').src=img
-    }
+    changeImg(img){document.querySelector('.images img').src=img}
   }
 }
 </script>
@@ -227,9 +211,10 @@ export default {
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    margin:0;
-    padding:0;
-    justify-content:left
+    margin: 0;
+    margin-top: 16px;
+    padding: 0;
+    justify-content: left;
   }
   .flip-card {
     display: flex;
@@ -240,16 +225,20 @@ export default {
     perspective: 1000px;
   }
   .flip-card span {
-    font-size: 20px;
+    font-size: 24px;
   }
   .card-inner {
-    transition: transform 0.6s;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
     transform-style: preserve-3d;
   }
   .flip-card:hover .card-inner {
     transform: rotateY(180deg);
   }
   .flip-front, .flip-back {
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -271,9 +260,11 @@ export default {
     height: 100%;
   }
   .flip-back {
-    background: grey;
-    color: white;
+    background: #f2f2f2;
+    color: black;
     transform: rotateY(180deg);
   }
-  
+  .flip-back span {
+    font-size: 20px;
+  }
 </style>

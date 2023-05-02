@@ -22,6 +22,11 @@
       <div class="project-preview">
         <ul class="preview">
           <li v-for="(page, i) in previews" :key="i"><div><img :src="page.src" :alt="page.alt"></div></li>
+          <li>
+            <div>
+              <span>* 입고살자는 <span class="musinsa" @click="newTab('https://www.musinsa.com/app/')">무신사</span>를<br> 레퍼런스로 진행했습니다.</span>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -37,14 +42,13 @@ export default {
   data () {
     return {
       covers:[
-        {src:require('@/assets/team-prj2/tp2home.png'),     alt:'홈페이지 입니다.'       },
-        {src:require('@/assets/team-prj2/tp2login.png'),    alt:'로그인 페이지 입니다.'  },  
+        { src: require('@/assets/team-prj2/tp2home.png'),     alt: '홈페이지 입니다.'       },
+        { src: require('@/assets/team-prj2/tp2login.png'),    alt: '로그인 페이지 입니다.'  },  
       ],
       previews: [
-        {src:require('@/assets/team-prj2/tp2products.png'), alt:'상품페이지 입니다.'     },
-        {src:require('@/assets/team-prj2/tp2detail.png'),   alt:'상품 상세 페이지 입니다.'},
-        {src:require('@/assets/team-prj2/tp2cart.png'),     alt:'장바구니 페이지 입니다.' },
-        {src:require('@/assets/team-prj2/tp2payment.png'),  alt:'장바구니 페이지 입니다.' }
+        { src: require('@/assets/team-prj2/tp2products.png'), alt: '상품페이지 입니다.'     },
+        { src: require('@/assets/team-prj2/tp2detail.png'),   alt: '상품 상세 페이지 입니다.'},
+        { src: require('@/assets/team-prj2/tp2cart.png'),     alt: '장바구니 페이지 입니다.' }
       ], 
       range: 0
     }
@@ -181,6 +185,21 @@ export default {
   ul.preview li div img {
     height: 100%;
     width: 100%;
+  }
+  ul.preview li:last-child div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  ul.preview li:last-child div span {
+    color: grey;
+    font-weight: bold;
+    width: 76%;
+    font-size: 34px;
+  }
+  .musinsa {
+    color: black !important;
+    cursor: pointer;
   }
   .btns {
     z-index: 1;

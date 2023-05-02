@@ -2,8 +2,7 @@
   <div class="cont-disp">
     <div class="project-container">
       <div class="project-cover">
-        <img :src="home">
-        <img :src="login">
+        <img v-for="(page, i) in covers" :key="i" :src="page.src" :alt="page.alt">
       </div>
       <div class="project-spec">
         <span>처음 해본 팀 프로젝트,</span>
@@ -21,10 +20,14 @@
         </div>
       </div>
       <div class="project-preview">
-        <div class="image-container">
-          <div><img :src="home"></div>
-          <div><img :src="login"></div>
-          <div><img :src="prod"></div>
+        <div class="img-container1">
+          <ul><li v-for="(step, i) in signup" :key="i"><img :src="step.src" :alt="step.alt"></li></ul>
+        </div>
+        <div class="img-container2">
+          <ul>
+            <li><img :src="prod"></li>
+            <li><span>* 회원가입 과정은<br>JSP로 제작됐습니다.</span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -39,8 +42,16 @@
 export default {
   data () {
     return {
-      home: require('@/assets/team-prj1/tp1home.png'),
-      login: require('@/assets/team-prj1/tp1login.png'),
+      covers: [
+        { src: require('@/assets/team-prj1/tp1home.png') ,   alt: '홈페이지 입니다.'      },
+        { src: require('@/assets/team-prj1/tp1login.png') ,  alt: '로그인 페이지 입니다.' },  
+      ],
+      signup: [
+        { src: require('@/assets/team-prj1/signup1.png') ,   alt: '회원가입' },
+        { src: require('@/assets/team-prj1/signup2.png') ,   alt: '약관동의' },
+        { src: require('@/assets/team-prj1/signup3.png') ,   alt: '정보입력' },
+        { src: require('@/assets/team-prj1/signup4.png') ,   alt: '가입완료' },
+      ],
       prod: require('@/assets/team-prj1/tp1product.png'),
       range: 0
     }
@@ -151,29 +162,55 @@ export default {
   }
   .project-preview {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 50%;
     height: 100%;
   }
-  .image-container {
+  .img-container1, .img-container2 {
+    width: 100%;
+    height: 50%;
+  }
+  ul {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin: 7.136px auto;
+    padding: 0;
+    width: 90%;
+  }
+  .img-container1 ul li {
+    width: 240px;
+    height: 260px;
+    list-style-type: none;
+  }
+  .img-container1 ul li img {
     width: 100%;
-    height: 285px;
+    height: 100%;
+  } 
+  .img-container2 ul li {
+    width: 472px;
+    height: 265px;
+    list-style-type: none;
   }
-  .image-container div {
-    width: 368px;
-    height: 285px;
-  }
-  .image-container div img {
+  .img-container2 ul li img {
     width: 100%;
     height: 100%;
   }
+  .img-container2 ul li:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .img-container2 ul li:last-child span {
+    color: grey;
+    font-weight: bold;
+    width: 70%;
+    font-size: 34px;
+  }
   .btns {
     z-index: 1;
-    top:95%;
+    top: 95%;
     width: 100%;
     height: 5%;
     position: absolute;
