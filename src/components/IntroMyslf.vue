@@ -72,25 +72,25 @@ export default {
           src: require("@/assets/properties/communication.png"),
           def: '명확한 의사소통',
           pic: require("@/assets/images/sihoonchris2.jpg"),
-          exp: '군대는 소통이 생명'
+          exp: '신속정확한 보고와 명확한 지시. 장교로 군복무를 했던 경험은 의사소통 능력을 향상시켰습니다.'
         },
         { 
           src: require("@/assets/properties/battery.png"), 
           def: '강한 체력',
           pic: require("@/assets/images/sihoonchris5.jpg"),
-          exp: '체력 없는 정신력은 허상'
+          exp: '어려움 앞에서 포기하지 않고 끊임없이 도전할 수 있는 건 강한 체력 덕분이죠.'
         },
         { 
           src: require("@/assets/properties/adaptation.png"), 
           def: '빠른 적응',
           pic: require("@/assets/images/sihoonchris3.jpg"),
-          exp: '어디든, 누구든'
+          exp: '모르는 것을 숨기지 않고 물어보는 용기. 새로움을 적극적으로 받아들이는 수용성.'
         },
         { 
           src: require("@/assets/properties/globe.png"), 
           def: '영어',
           pic: require("@/assets/images/sihoonchris4.jpg"),
-          exp: '웹 상의 정보 중 56%가 영어로 작성됨'
+          exp: '인터넷 상의 정보들 중 약 56%가 영어로 작성된 것을 알고 계신가요? 이제 영어는 필수입니다.'
         }
       ],
       age: 0,
@@ -266,5 +266,7 @@ export default {
   }
   .flip-back span {
     font-size: 20px;
+    text-align: center;
+    padding: 5%;
   }
 </style>

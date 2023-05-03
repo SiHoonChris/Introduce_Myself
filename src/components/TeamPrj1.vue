@@ -26,7 +26,11 @@
         <div class="img-container2">
           <ul>
             <li><img :src="prod"></li>
-            <li><span>* 회원가입 과정은<br>JSP로 제작됐습니다.</span></li>
+            <li>
+              <span>* <span>회원가입</span> 과정은<br>
+                <span @mouseenter="emphasis('0px 3px 4px -4px green')" @mouseleave="emphasis('none')" style="color:black;">JSP</span>로 제작됐습니다.
+              </span>
+            </li>
           </ul>
         </div>
       </div>
@@ -66,6 +70,10 @@ export default {
       const disp = document.querySelector(".project-container")
       disp.style.transform="translateX("+range+"%)"
       disp.style.transition="0.6s linear"
+    },
+    emphasis(color){
+      const signupBlock = document.querySelectorAll('.img-container1 ul li')
+      for(const i of signupBlock) {i.style.boxShadow=color}
     }
   }
 }
