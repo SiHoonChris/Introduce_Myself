@@ -1,6 +1,6 @@
 <template>
   <div class="cont-disp">
-    <div class="profile-img">
+    <div class="profile-img" @click="foo">
       <img :src="sihoonchris">
     </div>
     <div class="profile-exp">
@@ -12,7 +12,12 @@
 
 <script>
 export default {
-  data() {return {sihoonchris: require('@/assets/images/sihoonchris0.jpg')}}
+  data() {return {sihoonchris: require('@/assets/images/sihoonchris0.jpg')}},
+  methods:{
+    foo(){ // express 서버 연결 테스트용
+      this.$axios.get('/users')
+    }
+  }
 }
 </script>
 

@@ -5,6 +5,7 @@ import store from './store'
 import i18nPlugin from './plugins/i18n'
 import mitt from './mitt'
 import mixins from './mixins'
+import axios from 'axios'
 
 const i18nStrings = {
   ko: {
@@ -21,4 +22,6 @@ const i18nStrings = {
   }
 }
 
-createApp(App).use(store).use(router).use(i18nPlugin, i18nStrings).use(mitt).mixin(mixins).mount('#app')
+const app = createApp(App)
+app.config.globalProperties.$axios = axios;
+app.use(store).use(router).use(i18nPlugin, i18nStrings).use(mitt).mixin(mixins).mount('#app')
