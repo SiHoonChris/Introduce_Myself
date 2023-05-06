@@ -7,7 +7,7 @@
       <li>Duration : 2023.04.20 ~ 2023.05.XX</li>
       <li>E-mail : chrisleegpock@gmail.com</li>
       <li>GitHub : https://github.com/SiHoonChris/Introduce_Myself</li>
-      <li>Visitors : {{num}} (since May 3rd., 2023)</li>
+      <li>Visitors : {{num}} (since {{since}})</li>
     </ul>
   </div>
 </template>
@@ -15,20 +15,22 @@
 <script>
 export default {
   data() {
-    return {
-      num:0
+    return { 
+      num: '0',
+      since: 'date'
     }
   },
-  created(){
-    this.getNum()
-  },
-  mounted(){
-
-  },
+  created(){ this.getNum() },
   methods: {
-    async getNum() {
-      this.num = await this.$api("/api/num", {});
-    },
+    getNum() {
+      this.$axios.get('/num')
+      .then((res) => {
+          this.num = res.data['num']
+          this.since = res.data['since']
+        }
+      )
+      .catch((err) => { if (err.message.indexOf('Network Error') > -1) {alert('Error')} })
+    }
   }
 }
 </script>

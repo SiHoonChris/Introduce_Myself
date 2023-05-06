@@ -1,6 +1,6 @@
 <template>
   <div class="lang_selec">
-    <router-link :to="{name:'Main', params:{lang: country}}">{{greeting}}</router-link>
+    <router-link :to="{name:'Main', params:{lang: country}}" @click="setNum">{{greeting}}</router-link>
   </div>
 </template>
 
@@ -51,6 +51,11 @@ export default {
         langSetter.style.opacity = "0"
         langSetter.style.transition = "opacity 1.3s"
       }, 1700)
+    },
+    setNum() {
+      this.$axios.post('/cnt')
+      .then((res) => res.data === 0 ? console.log('ERROR') : console.log('good'))
+      .catch((err) => { if (err.message.indexOf('Network Error') > -1) {alert('Error')} })
     }
   }
 }

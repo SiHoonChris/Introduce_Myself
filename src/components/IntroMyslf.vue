@@ -2,7 +2,7 @@
   <div class="cont-disp">
     <div class="property-container">
       <div class="info-topic">
-        <span>팀플레이에 최적화.</span>
+        <span>{{$translate(this.$route.params.lang + ".im_teamplay")}}</span>
       </div>
       <div class="info-detail">
         <div class="basic-info">
@@ -11,29 +11,29 @@
           </div>
           <ul class="infos">
             <li>
-              <span>이름</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>이시훈</span>
+              <div>{{$translate(this.$route.params.lang + ".im_name1")}}</div>
+              <div>{{$translate(this.$route.params.lang + ".im_name2")}}</div>
             </li>
             <li>
-              <span>주소지</span>&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>서울특별시 강북구</span>
+              <div>{{$translate(this.$route.params.lang + ".im_address1")}}</div>
+              <div>{{$translate(this.$route.params.lang + ".im_address2")}}</div>
             </li>
             <li>
-              <span>생년월일</span>&nbsp;
-              <span>1997년 4월 26일 (만 {{age}}세)</span>
+              <div>{{$translate(this.$route.params.lang + ".im_birth1")}}</div>
+              <div>{{$translate(this.$route.params.lang + ".im_birth2")}}{{age}}{{$translate(this.$route.params.lang + ".im_birth2_sub")}}</div>
             </li>
             <li>
-              <span>이메일</span>&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>chrisleegpock@gmail.com</span>
+              <div>{{$translate(this.$route.params.lang + ".im_email1")}}</div>
+              <div>chrisleegpock@gmail.com</div>
             </li>
             <li>
-              <span>학력</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>상명대학교(경제금융학부)</span>
+              <div>{{$translate(this.$route.params.lang + ".im_education1")}}</div>
+              <div>{{$translate(this.$route.params.lang + ".im_education2")}}</div>
             </li>
             <li>
               <button class="github">
                 <span @click="newTab('https://github.com/SiHoonChris')">
-                  깃허브로 이동하기
+                  {{$translate(this.$route.params.lang + ".im_github1")}}
                 </span>
               </button>
             </li>
@@ -156,13 +156,15 @@ export default {
   .basic-info {
     width: 30%;
     height: 100%;
+    padding-top: 16.6px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
   .images {
     width: 286px;
     height: 368px;
-    margin: auto;
+    margin: 0 auto;
   }
   .images img {
     width: 100%;
@@ -175,10 +177,17 @@ export default {
   }
   .infos li {
     margin: 2px 0;
+    display: flex;
   }
-  .infos li:not(:last-child) span {
+  .infos li:not(:last-child) div {
     font-size: 16px;
     color: grey;
+  }
+  .infos li:not(:last-child) div:first-child {
+    width: 80px;
+  }
+  .infos li:not(:last-child) div:last-child {
+    width: 206px;
   }
   .github {
     background: none;

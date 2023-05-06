@@ -2,17 +2,17 @@
   <div class="cont-disp">
     <div class="project-container">
       <div class="project-spec">
-        <span>아는 것만으로는 부족해요.</span>
-        <span>직접 해봐야죠.</span>
-        <span>저의 토이 프로젝트들을 확인해보세요.</span>
+        <span>{{$translate(this.$route.params.lang + ".tp_knowing")}}</span>
+        <span>{{$translate(this.$route.params.lang + ".tp_apply")}}</span>
+        <span>{{$translate(this.$route.params.lang + ".tp_check")}}</span>
         <div>
           <button>
             <span @click="newTab('https://drive.google.com/file/d/1-6I5erTevVCM-WdDDc_9Y42yfUw6Fv-r/view?usp=sharing')">
-              안내 자료(PDF) 다운로드
+              {{$translate(this.$route.params.lang + ".download")}}
             </span>
           </button>
           <button>
-            <span @click="move(-50)">더 알아보기</span>
+            <span @click="move(-50)">{{$translate(this.$route.params.lang + ".learnMore")}}</span>
           </button>
         </div>
       </div>

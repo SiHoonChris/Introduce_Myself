@@ -5,17 +5,17 @@
         <img v-for="(page, i) in covers" :key="i" :src="page.src" :alt="page.alt">
       </div>
       <div class="project-spec">
-        <span>두 번째 팀 프로젝트,</span>
-        <span>입고살자.</span>
-        <span>의류 쇼핑몰 제작</span>
+        <span>{{$translate(this.$route.params.lang + ".tp2_second")}}</span>
+        <span>{{$translate(this.$route.params.lang + ".tp2_project")}}</span>
+        <span>{{$translate(this.$route.params.lang + ".tp2_definition")}}</span>
         <div>
           <button>
             <span @click="newTab('https://drive.google.com/file/d/1A7Bt8dyhOv3ehiml0F_t9fM6VY5doTDS/view?usp=sharing')">
-              안내 자료(PDF) 다운로드
+              {{$translate(this.$route.params.lang + ".download")}}
             </span>
           </button>
           <button>
-            <span @click="move(-50)">더 알아보기</span>
+            <span @click="move(-50)">{{$translate(this.$route.params.lang + ".learnMore")}}</span>
           </button>
         </div>
       </div>
@@ -24,7 +24,11 @@
           <li v-for="(page, i) in previews" :key="i"><div><img :src="page.src" :alt="page.alt"></div></li>
           <li>
             <div>
-              <span>* 입고살자는 <span class="musinsa" @click="newTab('https://www.musinsa.com/app/')">무신사</span>를<br> 레퍼런스로 진행했습니다.</span>
+              <span>
+                <span>{{$translate(this.$route.params.lang + ".tp2_explanation1")}}</span>
+                <span class="musinsa" @click="newTab('https://www.musinsa.com/app/')">무신사</span>
+                <span>{{$translate(this.$route.params.lang + ".tp2_explanation2")}}</span>
+              </span>
             </div>
           </li>
         </ul>

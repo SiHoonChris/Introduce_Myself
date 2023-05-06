@@ -5,17 +5,17 @@
         <img v-for="(page, i) in covers" :key="i" :src="page.src" :alt="page.alt">
       </div>
       <div class="project-spec">
-        <span>처음 해본 팀 프로젝트,</span>
-        <span>코드그린.</span>
-        <span>식품 쇼핑몰 제작</span>
+        <span>{{$translate(this.$route.params.lang + ".tp1_first")}}</span>
+        <span>{{$translate(this.$route.params.lang + ".tp1_project")}}</span>
+        <span>{{$translate(this.$route.params.lang + ".tp1_definition")}}</span>
         <div>
           <button>
             <span @click="newTab('https://drive.google.com/file/d/1btKj_HO3NPZwv54J7_pmTwdggicE1MnC/view?usp=sharing')">
-              안내 자료(PDF) 다운로드
+              {{$translate(this.$route.params.lang + ".download")}}
             </span>
           </button>
           <button>
-            <span @click="move(-50)">더 알아보기</span>
+            <span @click="move(-50)">{{$translate(this.$route.params.lang + ".learnMore")}}</span>
           </button>
         </div>
       </div>
@@ -27,8 +27,10 @@
           <ul>
             <li><img :src="prod"></li>
             <li>
-              <span>* <span>회원가입</span> 과정은<br>
-                <span @mouseenter="emphasis('0px 3px 4px -4px green')" @mouseleave="emphasis('none')" style="color:black;">JSP</span>로 제작됐습니다.
+              <span>
+                <span>{{$translate(this.$route.params.lang + ".tp1_explanation1")}}</span>
+                <span @mouseenter="emphasis('0px 3px 4px -4px green')" @mouseleave="emphasis('none')" style="color:black;">JSP</span>
+                <span>{{$translate(this.$route.params.lang + ".tp1_explanation2")}}</span>
               </span>
             </li>
           </ul>

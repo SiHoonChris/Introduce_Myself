@@ -1,8 +1,8 @@
 <template>
   <div class="cont-disp">
     <div>
-      <span>기술 스택.</span>
-      <span>지금 이 순간에도 발전하는 중.</span>
+      <span>{{$translate(this.$route.params.lang + ".ts_techstack")}}</span>
+      <span>{{$translate(this.$route.params.lang + ".ts_development")}}</span>
     </div>
     <img v-for="(skill, i) in tech" :key="i" :src="skill.src" :alt="skill.alt" :style="skill.style">
   </div>
