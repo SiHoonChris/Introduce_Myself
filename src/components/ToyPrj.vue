@@ -63,13 +63,13 @@ export default {
       pythonPrj:[
         { 
           src: require('@/assets/toy-prj/tpReportDownloader.png'),
-          alt: '재무제표 스크래퍼', 
+          alt: this.$store.state.lang[this.$route.params.lang].tp_pythonprj1, 
           dur: '2022.07.16 ~ 2022.07.25',
           lan: 'Python (Selenium, BeautifulSoup4)'
         },
         {
           src: require('@/assets/toy-prj/tpChart.png'),
-          alt: '주식 보조지표',
+          alt: this.$store.state.lang[this.$route.params.lang].tp_pythonprj2, 
           dur: '2022.08.28 ~ 2022.10.10',
           lan: 'Python (Pandas, Matplotlib)'
         },  
@@ -77,20 +77,20 @@ export default {
       javaPrj1: [
         { 
           src: require('@/assets/toy-prj/tpBlackJack.png'),
-          alt: '블랙잭',
+          alt: this.$store.state.lang[this.$route.params.lang].tp_javaprj1, 
           dur: '2022.10.19 ~ 2022.10.27',  
           lan: 'Java'
         },
         { 
           src: require('@/assets/toy-prj/tpPortfolioAuto.gif'),
-          alt: '투자 포트폴리오 구성 자동화',
+          alt: this.$store.state.lang[this.$route.params.lang].tp_javaprj3,
           dur: '2022.12.16 ~ 2023.01.29',
           lan: 'Java, SQL, JSP, CSS, JavaScript'
         }
       ],
       javaPrj2: { 
         src: require('@/assets/toy-prj/tpMineSweeper.gif'),
-        alt: '지뢰찾기',
+        alt: this.$store.state.lang[this.$route.params.lang].tp_javaprj2,
         dur: '2022.10.28 ~ 2022.11.13',
         lan: 'Java (AWT, Swing)'
       },

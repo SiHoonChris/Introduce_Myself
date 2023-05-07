@@ -14,7 +14,8 @@ export default {
       langs: [
         {country:'ko', greeting:'안녕하세요'},
         {country:'en', greeting:'Hello'    },
-        {country:'jp', greeting:'こんにちは'}
+        {country:'jp', greeting:'こんにちは'},
+        {country:'cn', greeting:'테스트용'},
       ],
       fn_langSetter: null
     }

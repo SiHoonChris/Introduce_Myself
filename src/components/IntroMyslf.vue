@@ -68,29 +68,29 @@ export default {
     return {
       SiHoonChris: require("@/assets/images/sihoonchris1.jpg"),
       strength: [
-        { 
+        {
           src: require("@/assets/properties/communication.png"),
-          def: '명확한 의사소통',
+          def: this.$store.state.lang[this.$route.params.lang].im_communication,
           pic: require("@/assets/images/sihoonchris2.jpg"),
-          exp: '신속정확한 보고와 명확한 지시. 장교로 군복무를 했던 경험은 의사소통 능력을 향상시켰습니다.'
+          exp: this.$store.state.lang[this.$route.params.lang].im_communication_exp
         },
         { 
           src: require("@/assets/properties/battery.png"), 
-          def: '강한 체력',
+          def: this.$store.state.lang[this.$route.params.lang].im_endurance,
           pic: require("@/assets/images/sihoonchris5.jpg"),
-          exp: '어려움 앞에서 포기하지 않고 끊임없이 도전할 수 있는 건 강한 체력 덕분이죠.'
+          exp: this.$store.state.lang[this.$route.params.lang].im_endurance_exp
         },
         { 
           src: require("@/assets/properties/adaptation.png"), 
-          def: '빠른 적응',
+          def: this.$store.state.lang[this.$route.params.lang].im_adaptation,
           pic: require("@/assets/images/sihoonchris3.jpg"),
-          exp: '모르는 것을 숨기지 않고 물어보는 용기. 새로움을 적극적으로 받아들이는 수용성.'
+          exp: this.$store.state.lang[this.$route.params.lang].im_adaptation_exp
         },
         { 
           src: require("@/assets/properties/globe.png"), 
-          def: '영어',
+          def: this.$store.state.lang[this.$route.params.lang].im_english,
           pic: require("@/assets/images/sihoonchris4.jpg"),
-          exp: '인터넷 상의 정보들 중 약 56%가 영어로 작성된 것을 알고 계신가요? 이제 영어는 필수입니다.'
+          exp: this.$store.state.lang[this.$route.params.lang].im_english_exp
         }
       ],
       age: 0,
