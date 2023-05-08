@@ -21,7 +21,6 @@ import PrgSpec      from './PrgSpec.vue'
 export default {
   components: {ContentCover, IntroMyslf, TechStack, ToyPrj, TeamPrj1, TeamPrj2, PrgSpec}, 
   data() {return {content:'default'}},
-  created() {this.$store.commit('contentDownload', this.$route.params.lang)},
   mounted() {this.$emitter.on('sc', (word)=>{this.content=word})}
 }
 </script>

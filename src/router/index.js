@@ -3,7 +3,7 @@ import IntroView from "@/views/IntroView.vue"
 
 const routes = [
   { path: '/',           name: 'Intro', component: IntroView                             },
-  { path: '/main/:lang', name: 'Main',  component: () => import('../views/MainView.vue') }
+  { path: '/:lang/main', name: 'Main',  component: () => import('../views/MainView.vue') }
 ]
 
 const router = createRouter({

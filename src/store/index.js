@@ -1,3 +1,4 @@
+
 import { createStore } from 'vuex'
 
 export default createStore({
@@ -146,11 +147,6 @@ export default createStore({
   getters: {
   },
   mutations: {
-    contentDownload(state, payload){
-      this.$axios.get('/lang', payload)
-      .then((res) => { state.lang.push( res.data ) })
-      .catch((err) => { if (err.message.indexOf('Network Error') > -1) {alert('Error')} })
-    }
   },
   actions: {
   },
