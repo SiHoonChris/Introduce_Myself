@@ -4,7 +4,7 @@
       <li>About This Portfolio</li>
       <li>Author : Si-Hoon Lee</li>
       <li>Tech Stack : MySQL, Express.js, Vue.js(Vue3), Node.js, EC2, RDS</li>
-      <li>Duration : 2023.04.20 ~ 2023.05.08</li>
+      <li>Duration : 2023.04.20 ~ 2023.05.11</li>
       <li>E-mail : chrisleegpock@gmail.com</li>
       <li>GitHub : https://github.com/SiHoonChris/Introduce_Myself</li>
       <li>Visitors : {{num}} (since {{since}})</li>
@@ -20,7 +20,7 @@ export default {
       since: 'date'
     }
   },
-  created(){ this.getNum() },
+  created() { this.getNum() },
   methods: {
     getNum() {
       this.$axios.get('/num')
@@ -29,7 +29,7 @@ export default {
           this.since = res.data['since']
         }
       )
-      .catch((err) => { if (err.message.indexOf('Network Error') > -1) {alert('Error')} })
+      .catch((err) => { err.message.indexOf('Network Error') > -1 && alert('Error') })
     }
   }
 }

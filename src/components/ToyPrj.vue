@@ -7,12 +7,12 @@
         <span>{{$translate(this.$route.params.lang + ".tp_check")}}</span>
         <div>
           <button>
-            <span @click="newTab('https://drive.google.com/file/d/1-6I5erTevVCM-WdDDc_9Y42yfUw6Fv-r/view?usp=sharing')">
+            <span @click="$open('https://drive.google.com/file/d/1-6I5erTevVCM-WdDDc_9Y42yfUw6Fv-r/view?usp=sharing')">
               {{$translate(this.$route.params.lang + ".download")}}
             </span>
           </button>
           <button>
-            <span @click="move(-50)">{{$translate(this.$route.params.lang + ".learnMore")}}</span>
+            <span @click="this.range = -50">{{$translate(this.$route.params.lang + ".learnMore")}}</span>
           </button>
         </div>
       </div>
@@ -58,9 +58,9 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      pythonPrj:[
+      pythonPrj: [
         { 
           src: require('@/assets/toy-prj/tpReportDownloader.png'),
           alt: this.$store.state.lang[this.$route.params.lang].tp_pythonprj1, 
@@ -97,17 +97,8 @@ export default {
       range: 0
     }
   },
-  watch:{
-    range(){this.move(this.range)}
-  },
-  methods:{
-    newTab(url){open(url)},
-    move(range){
-      this.range=range
-      const disp = document.querySelector(".project-container")
-      disp.style.transform="translateX("+range+"%)"
-      disp.style.transition="0.6s linear"
-    }
+  watch: {
+    range() { this.$move(this.range) }
   }
 }
 </script>

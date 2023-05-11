@@ -19,9 +19,15 @@ import TeamPrj1     from './TeamPrj1.vue'
 import TeamPrj2     from './TeamPrj2.vue'
 import PrgSpec      from './PrgSpec.vue'
 export default {
-  components: {ContentCover, IntroMyslf, TechStack, ToyPrj, TeamPrj1, TeamPrj2, PrgSpec}, 
-  data() {return {content:'default'}},
-  mounted() {this.$emitter.on('sc', (word)=>{this.content=word})}
+  components: { ContentCover, IntroMyslf, TechStack, ToyPrj, TeamPrj1, TeamPrj2, PrgSpec }, 
+  data() {
+    return {
+      content: 'default'
+    }
+  },
+  mounted() {
+    this.$emitter.on('sc', (word) => { this.content = word })
+  }
 }
 </script>
 

@@ -34,12 +34,12 @@ export default {
   methods: {
     activateMenu(length, speed, delay){
       const menu = document.querySelector(".menu-area")
-      setTimeout(()=>{
+      setTimeout(() => {
         menu.style.paddingTop=length+"px"
         menu.style.transition=speed+"s ease-in-out"
       }, delay)
     },
-    showContents(word){
+    showContents(word) {
       this.$emitter.emit('sc', word)
     }
   }

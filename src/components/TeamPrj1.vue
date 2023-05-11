@@ -10,12 +10,12 @@
         <span>{{$translate(this.$route.params.lang + ".tp1_definition")}}</span>
         <div>
           <button>
-            <span @click="newTab('https://drive.google.com/file/d/1btKj_HO3NPZwv54J7_pmTwdggicE1MnC/view?usp=sharing')">
+            <span @click="$open('https://drive.google.com/file/d/1btKj_HO3NPZwv54J7_pmTwdggicE1MnC/view?usp=sharing')">
               {{$translate(this.$route.params.lang + ".download")}}
             </span>
           </button>
           <button>
-            <span @click="move(-50)">{{$translate(this.$route.params.lang + ".learnMore")}}</span>
+            <span @click="this.range = -50">{{$translate(this.$route.params.lang + ".learnMore")}}</span>
           </button>
         </div>
       </div>
@@ -46,7 +46,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       covers: [
         { src: require('@/assets/team-prj1/tp1home.png') ,   alt: '홈페이지 입니다.'      },
@@ -62,18 +62,11 @@ export default {
       range: 0
     }
   },
-  watch:{
-    range(){this.move(this.range)}
+  watch: {
+    range() { this.$move(this.range) }
   },
-  methods:{
-    newTab(url){open(url)},
-    move(range){
-      this.range=range
-      const disp = document.querySelector(".project-container")
-      disp.style.transform="translateX("+range+"%)"
-      disp.style.transition="0.6s linear"
-    },
-    emphasis(color){
+  methods: {
+    emphasis(color) {
       const signupBlock = document.querySelectorAll('.img-container1 ul li')
       for(const i of signupBlock) {i.style.boxShadow=color}
     }

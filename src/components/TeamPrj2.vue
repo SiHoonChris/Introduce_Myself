@@ -10,12 +10,12 @@
         <span>{{$translate(this.$route.params.lang + ".tp2_definition")}}</span>
         <div>
           <button>
-            <span @click="newTab('https://drive.google.com/file/d/1A7Bt8dyhOv3ehiml0F_t9fM6VY5doTDS/view?usp=sharing')">
+            <span @click="$open('https://drive.google.com/file/d/1A7Bt8dyhOv3ehiml0F_t9fM6VY5doTDS/view?usp=sharing')">
               {{$translate(this.$route.params.lang + ".download")}}
             </span>
           </button>
           <button>
-            <span @click="move(-50)">{{$translate(this.$route.params.lang + ".learnMore")}}</span>
+            <span @click="this.range = -50">{{$translate(this.$route.params.lang + ".learnMore")}}</span>
           </button>
         </div>
       </div>
@@ -26,7 +26,7 @@
             <div>
               <span>
                 <span>{{$translate(this.$route.params.lang + ".tp2_explanation1")}}</span>
-                <span class="musinsa" @click="newTab('https://www.musinsa.com/app/')">무신사</span>
+                <span class="musinsa" @click="$open('https://www.musinsa.com/app/')">무신사</span>
                 <span>{{$translate(this.$route.params.lang + ".tp2_explanation2")}}</span>
               </span>
             </div>
@@ -43,9 +43,9 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      covers:[
+      covers: [
         { src: require('@/assets/team-prj2/tp2home.png'),     alt: '홈페이지 입니다.'       },
         { src: require('@/assets/team-prj2/tp2login.png'),    alt: '로그인 페이지 입니다.'  },  
       ],
@@ -57,17 +57,8 @@ export default {
       range: 0
     }
   },
-  watch:{
-    range(){this.move(this.range)}
-  },
-  methods:{
-    newTab(url){open(url)},
-    move(range){
-      this.range=range
-      const disp = document.querySelector(".project-container")
-      disp.style.transform="translateX("+range+"%)"
-      disp.style.transition="0.6s linear"
-    }
+  watch: {
+    range() { this.$move(this.range) }
   }
 }
 </script>

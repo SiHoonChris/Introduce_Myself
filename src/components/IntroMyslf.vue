@@ -32,7 +32,7 @@
             </li>
             <li>
               <button class="github">
-                <span @click="newTab('https://github.com/SiHoonChris')">
+                <span @click="$open('https://github.com/SiHoonChris')">
                   {{$translate(this.$route.params.lang + ".im_github1")}}
                 </span>
               </button>
@@ -97,27 +97,26 @@ export default {
       appear: null
     }
   },
-  created(){
+  created() {
     const today = new Date()
     const birth = new Date(1997, 4, 26)
-
-    this.age = today.getFullYear() - birth.getFullYear();
-    const m = (today.getMonth() + 1) - birth.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {this.age--}
+    
+    this.age = today.getFullYear() - birth.getFullYear()
+    const m = (today.getMonth() + 1) - birth.getMonth()
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) { this.age-- }
   },
   mounted(){
-    this.appear = setTimeout(()=>{
+    this.appear = setTimeout(() => {
       const title = document.querySelector(".property-container")
       title.style.transform="translateY(-50%)"
       title.style.transition = "1.0s ease-out"
     }, 1000)
   },
-  beforeUnmount(){
+  beforeUnmount() {
     clearTimeout(this.appear)
   },
-  methods:{
-    newTab(url){open(url)},
-    changeImg(img){document.querySelector('.images img').src=img}
+  methods: {
+    changeImg(img) { document.querySelector('.images img').src = img }
   }
 }
 </script>

@@ -55,7 +55,7 @@ export default {
     setNum() {
       this.$axios.post('/cnt')
       .then((res) => res.data === 0 ? console.log('ERROR') : console.log('good'))
-      .catch((err) => { if (err.message.indexOf('Network Error') > -1) {alert('Error')} })
+      .catch((err) => { err.message.indexOf('Network Error') > -1 && alert('Error') })
     }
   }
 }
