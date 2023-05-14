@@ -33,10 +33,10 @@ export default {
 
 <style scoped>
   .content {
-    width: 1168px;
-    height: 578px;
+    width: 76vw;
+    height: 81vh;
     opacity: 0;
-    margin: 21.5px auto 14.3px;
+    margin: 3vh auto 2vh;
     display: flex;
     align-items: center;
     justify-content: center;

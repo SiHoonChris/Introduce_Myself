@@ -105,8 +105,8 @@ export default {
 
 <style scoped>
   .cont-disp {
-    width: 1168px;
-    height: 578px;
+    width: 76vw;
+    height: 81vh;
     overflow: hidden;
     position: relative;
     opacity: 0;
@@ -127,39 +127,39 @@ export default {
     height: 100%;
   }
   .project-spec span:nth-child(1) {
-    font-size: 40px;
+    font-size: 5.605vmin;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 1.4vmin;
   }
   .project-spec span:nth-child(2) {
-    font-size: 70px;
+    font-size: 9.81vmin;
     font-weight: bold;
     text-align: center;
   }
   .project-spec span:nth-child(3) {
-    font-size:20px;
-    font-weight:bold;
-    color:grey;
-    text-align:center;
+    font-size: 2.80vmin;
+    font-weight: bold;
+    color: grey;
+    text-align: center;
   }
   .project-spec div {
-    width: 320px;
+    width: 44.84vmin;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 4.204vmin;
   }
   .project-spec div button:first-child {
-    width: 190px;
-    height: 30px;
+    width: 26.63vmin;
+    height: 4.204vmin;
     border: none;
-    border-radius: 26px;
+    border-radius: 3.643vmin;
     background: blue;
     cursor: pointer;
   }
   .project-spec div button:first-child span {
     color:white;
-    font-size: 14px;
+    font-size: 1.96vmin;
     font-weight: bold;
   }
   .project-spec div button:last-child {
@@ -169,7 +169,7 @@ export default {
   }
   .project-spec div button:last-child span {
     color:blue;
-    font-size: 18px;
+    font-size: 2.52vmin;
   }
   .project-spec div button:last-child span:hover {
     text-decoration: underline;
@@ -178,7 +178,7 @@ export default {
   .project-spec div button:last-child::after {
     content: ' >';
     color: blue;
-    font-size: 18px;
+    font-size: 2.52vmin;
   }
   .project-python {
     display: flex;
@@ -206,14 +206,14 @@ export default {
   }
   .prj-cont {
     position: relative;
-    width: 472px;
-    height: 264px;
-    margin: 7.136px auto;
+    width: 66.14vmin;
+    height: 37vmin;
+    margin: 1vmin auto;
   }
   .sep:last-child .prj-cont {
-    width: 300px;
-    height: 360px;
-    margin: 7.136px auto;
+    width: 42.04vmin;
+    height: 50.448vmin;
+    margin: 1vmin auto;
   }
   .prj-cont-img {
     position: absolute;
@@ -231,22 +231,23 @@ export default {
   .prj-cont-txt p:nth-child(1) {
     margin: 0;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 3.92vmin;
   }
   .prj-cont-txt p:nth-child(2) {
-    margin: 1px auto;
+    margin: 0.14vmin auto;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 2.1vmin;
   }
   .prj-cont-txt p:nth-child(3) {
     font-weight: bold;
+    font-size: 2.243vmin;
   }
   img:hover {
     opacity: 0.25;
   }
   .btns {
     z-index: 1;
-    top:95%;
+    top: 95%;
     width: 100%;
     height: 5%;
     position: absolute;
@@ -256,8 +257,8 @@ export default {
   }
   input[type="radio"] {
     appearance: none;
-    width: 12px;
-    height: 12px;
+    width: 1.7vmin;
+    height: 1.7vmin;
     border: 1px solid lightgrey;
     border-radius: 50%;
     background: lightgrey;

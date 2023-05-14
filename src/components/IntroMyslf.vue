@@ -123,8 +123,8 @@ export default {
 
 <style scoped>
   .cont-disp {
-    width: 1168px;
-    height: 578px;
+    width: 76vw;
+    height: 81vh;
     display: flex;
     overflow: hidden;
     opacity: 0;
@@ -142,7 +142,7 @@ export default {
   }
   .info-topic span {
     font-weight: bold;
-    font-size: 68px;
+    font-size: 10vmin;
   }
   .info-detail {
     display: flex;
@@ -155,14 +155,14 @@ export default {
   .basic-info {
     width: 30%;
     height: 100%;
-    padding-top: 16.6px;
+    padding-top: 2vmin;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   .images {
-    width: 286px;
-    height: 368px;
+    width: 40.0785vmin;
+    height: 51.5695vmin;
     margin: 0 auto;
   }
   .images img {
@@ -170,23 +170,23 @@ export default {
     height: 100%;
   }
   .infos {
-    width: 286px;
+    width: 40.0785vmin;
     padding: 0;
     margin: auto;
   }
   .infos li {
-    margin: 2px 0;
+    margin: 0.28vmin 0;
     display: flex;
   }
   .infos li:not(:last-child) div {
-    font-size: 16px;
+    font-size: 2.2422vmin;
     color: grey;
   }
   .infos li:not(:last-child) div:first-child {
-    width: 80px;
+    width: 11.2108vmin;
   }
   .infos li:not(:last-child) div:last-child {
-    width: 206px;
+    width: 28.87vmin;
   }
   .github {
     background: none;
@@ -195,7 +195,7 @@ export default {
   }
   .github span {
     color: blue;
-    font-size: 16px;
+    font-size: 2.2422vmin;
   }
   .github span:hover {
     text-decoration: underline;
@@ -203,7 +203,7 @@ export default {
   }
   .github:after {
     content: " >";
-    font-size: 16px;
+    font-size: 2.2422vmin;
     color: blue;
   }
   .properties {
@@ -220,7 +220,7 @@ export default {
     width: 100%;
     height: 100%;
     margin: 0;
-    margin-top: 16px;
+    margin-top: 2vmin;
     padding: 0;
     justify-content: left;
   }
@@ -230,7 +230,7 @@ export default {
     justify-content: center;
     width: 50%;
     height: 50%;
-    perspective: 1000px;
+    perspective: 140.1345vmin;
   }
   .flip-card span {
     font-size: 24px;
@@ -260,8 +260,8 @@ export default {
     color: black;
   }
   .flip-front div {
-    width: 60px;
-    height: 60px;
+    width: 8.408vmin;
+    height: 8.408vmin;
   }
   .flip-front div img {
     width: 100%;
@@ -273,7 +273,7 @@ export default {
     transform: rotateY(180deg);
   }
   .flip-back span {
-    font-size: 20px;
+    font-size: 2.8027vmin;
     text-align: center;
     padding: 5%;
   }

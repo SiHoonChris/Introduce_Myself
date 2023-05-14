@@ -63,7 +63,7 @@ export default {
 
 <style>
 .lang_selec {
-  font-size: 60px;
+  font-size: 9vmin;
   font-weight: bold;
 }
 a {

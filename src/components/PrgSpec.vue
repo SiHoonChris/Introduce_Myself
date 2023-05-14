@@ -37,24 +37,25 @@ export default {
 
 <style scoped>
   .cont-disp {
-    width: 1168px;
-    height: 578px;
+    width: 76vw;
+    height: 81vh;
     position: relative;
     opacity: 0;
   }
   ul{
     position: absolute;
     width: 60%;
+    padding-left: 5.8vmin;
     margin: 0;
     left: 40%;
     top: 50%;
   }
   li {
     list-style-type: none;
-    font-size: 60px;
+    font-size: 8.5vmin;
     font-weight: bold;
   }
   li:not(:first-child) {
-    font-size: 20px;
+    font-size: 2.9vmin;
   }
 </style>

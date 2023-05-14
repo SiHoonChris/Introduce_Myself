@@ -22,8 +22,8 @@ export default {
 
 <style scoped>
   .cont-disp {
-    width: 1168px;
-    height: 578px;
+    width: 76vw;
+    height: 81vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,14 +49,14 @@ export default {
     height: 100%;
   }
   .profile-exp h1 {
-    padding-left: 20px;
-    font-size: 76px;
+    padding-left: 2.85vmin;
+    font-size: 11vmin;
     font-weight: bold;
-    margin:0;
+    margin: 0;
   } 
   .profile-exp span {
-    padding-left: 28px;
-    font-size: 20px;
+    padding-left: 3vmin;
+    font-size: 2.88vmin;
     font-weight: bold;
     color: grey;
   }

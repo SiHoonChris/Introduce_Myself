@@ -76,8 +76,8 @@ export default {
 
 <style scoped>
   .cont-disp {
-    width: 1168px;
-    height: 578px;
+    width: 76vw;
+    height: 81vh;
     overflow: hidden;
     position: relative;
     opacity: 0;
@@ -97,9 +97,9 @@ export default {
   }
   .project-cover img {
     display: block;
-    width: 472px;
-    height: 265px;
-    margin: 7.136px auto;
+    width: 66.1435vmin;
+    height: 37.1357vmin;
+    margin: 1vmin auto;
   }
   .project-spec {
     display:flex;
@@ -110,39 +110,39 @@ export default {
     height: 100%;
   }
   .project-spec span:nth-child(1) {
-    font-size: 40px;
+    font-size: 5.605vmin;
     font-weight: bold;
     margin-bottom: 10px;
   }
   .project-spec span:nth-child(2) {
-    font-size: 70px;
+    font-size: 9.81vmin;
     font-weight: bold;
     text-align: center;
   }
   .project-spec span:nth-child(3) {
-    font-size:20px;
-    font-weight:bold;
-    color:grey;
-    text-align:center;
+    font-size: 2.803vmin;
+    font-weight: bold;
+    color: grey;
+    text-align: center;
   }
   .project-spec div {
-    width: 320px;
+    width: 44.86vmin;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 4.204vmin;
   }
   .project-spec div button:first-child {
-    width: 190px;
-    height: 30px;
+    width: 26.626vmin;
+    height: 4.204vmin;
     border: none;
-    border-radius: 26px;
+    border-radius: 3.6135vmin;
     background: blue;
     cursor: pointer;
   }
   .project-spec div button:first-child span {
     color:white;
-    font-size: 14px;
+    font-size: 1.96vmin;
     font-weight: bold;
   }
   .project-spec div button:last-child {
@@ -152,7 +152,7 @@ export default {
   }
   .project-spec div button:last-child span {
     color:blue;
-    font-size: 18px;
+    font-size: 2.52vmin;
   }
   .project-spec div button:last-child span:hover {
     text-decoration: underline;
@@ -161,7 +161,7 @@ export default {
   .project-spec div button:last-child::after {
     content: ' >';
     color: blue;
-    font-size: 18px;
+    font-size: 2.52vmin;
   }
   .project-preview {
     display: flex;
@@ -178,13 +178,13 @@ export default {
   ul {
     display: flex;
     justify-content: space-between;
-    margin: 7.136px auto;
+    margin: 1vmin auto;
     padding: 0;
     width: 90%;
   }
   .img-container1 ul li {
-    width: 240px;
-    height: 260px;
+    width: 33.6323vmin;
+    height: 36.435vmin;
     list-style-type: none;
   }
   .img-container1 ul li img {
@@ -192,8 +192,8 @@ export default {
     height: 100%;
   } 
   .img-container2 ul li {
-    width: 472px;
-    height: 265px;
+    width: 66.1435vmin;
+    height: 37.1357vmin;
     list-style-type: none;
   }
   .img-container2 ul li img {
@@ -209,7 +209,7 @@ export default {
     color: grey;
     font-weight: bold;
     width: 70%;
-    font-size: 34px;
+    font-size: 4.765vmin;
   }
   .btns {
     z-index: 1;
@@ -223,8 +223,8 @@ export default {
   }
   input[type="radio"] {
     appearance: none;
-    width: 12px;
-    height: 12px;
+    width: 1.7vmin;
+    height: 1.7vmin;
     border: 1px solid lightgrey;
     border-radius: 50%;
     background: lightgrey;

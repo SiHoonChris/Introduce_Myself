@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-area" @mouseenter="activateMenu(0, 0.8, 0)" @mouseleave="activateMenu(98, 1.3, 0)">
+  <div class="menu-area" @mouseenter="activateMenu(0, 1.0, 0)" @mouseleave="activateMenu(14, 1.2, 200)">
     <div class="menu-bar">
       <div class="menu-content">
         <ul>
@@ -28,14 +28,14 @@ export default {
     }
   },
   mounted(){
-    this.activateMenu(0, 1.3, 1400)
-    this.activateMenu(98, 1.5, 3500)
+    this.activateMenu(0, 1.2, 1400)
+    this.activateMenu(14, 1.4, 3500)
   },
   methods: {
     activateMenu(length, speed, delay){
       const menu = document.querySelector(".menu-area")
       setTimeout(() => {
-        menu.style.paddingTop=length+"px"
+        menu.style.paddingTop=length+"vh"
         menu.style.transition=speed+"s ease-in-out"
       }, delay)
     },
@@ -48,20 +48,20 @@ export default {
 
 <style scoped>
   .menu-area {
-    width: 100%;
-    height: 92.8px;
-    padding-top: 98px;
+    width: 100vw;
+    height: 14vh;
+    padding-top: 14vh;
   }
   .menu-bar {
     background : lightgrey;
-    width: 40%;
-    height: 85.625px;
-    border-radius: 24px;
+    width: 40vw;
+    height: 12vh;
+    border-radius: 1.6vw;
     margin: 0 auto;
   }
   .menu-content {
-    width: 100%;
-    height: 100%;
+    width: 40vw;
+    height: 12vh;
     background: none;
     overflow: hidden;
   }
@@ -81,11 +81,11 @@ export default {
     justify-content: center;
   }
   .menu-content > ul li:not(:last-child) {
-    margin-right: 15.36px;
+    margin-right: 1vw;
   }
   .menu-content img {
-    width: 71.35px;
-    height: 71.35px;
+    width: 10vh;
+    height: 10vh;
     cursor: pointer;
   }
 </style>

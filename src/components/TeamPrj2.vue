@@ -65,8 +65,8 @@ export default {
 
 <style scoped>
   .cont-disp {
-    width: 1168px;
-    height: 578px;
+    width: 76vw;
+    height: 81vh;
     overflow: hidden;
     position: relative;
     opacity: 0;
@@ -87,7 +87,7 @@ export default {
   .project-cover img {
     display: block;
     height: 46%;
-    margin: 7.136px auto;
+    margin: 1vmin auto;
   }
   .project-spec {
     display:flex;
@@ -98,39 +98,39 @@ export default {
     height: 100%;
   }
   .project-spec span:nth-child(1) {
-    font-size: 40px;
+    font-size: 5.6054vmin;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 1.4013vmin;
   }
   .project-spec span:nth-child(2) {
-    font-size: 70px;
+    font-size: 9.8094vmin;
     font-weight: bold;
     text-align: center;
   }
   .project-spec span:nth-child(3) {
-    font-size: 20px;
+    font-size: 2.8027vmin;
     font-weight: bold;
     color: grey;
     text-align: center;
   }
   .project-spec div {
-    width: 320px;
+    width: 44.843vmin;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 4.204vmin;
   }
   .project-spec div button:first-child {
-    width: 190px;
-    height: 30px;
+    width: 26.6256vmin;
+    height: 4.204vmin;
     border: none;
-    border-radius: 26px;
+    border-radius: 3.6435vmin;
     background: blue;
     cursor: pointer;
   }
   .project-spec div button:first-child span {
     color:white;
-    font-size: 14px;
+    font-size: 1.96vmin;
     font-weight: bold;
   }
   .project-spec div button:last-child {
@@ -140,7 +140,7 @@ export default {
   }
   .project-spec div button:last-child span {
     color:blue;
-    font-size: 18px;
+    font-size: 2.52vmin;
   }
   .project-spec div button:last-child span:hover {
     text-decoration: underline;
@@ -149,7 +149,7 @@ export default {
   .project-spec div button:last-child::after {
     content: ' >';
     color: blue;
-    font-size: 18px;
+    font-size: 2.52vmin;
   }
   .project-preview {
     width: 50%;
@@ -174,8 +174,8 @@ export default {
     margin: 0;
   }
   ul.preview li div {
-    width:90%;
-    height:90%;
+    width: 90%;
+    height: 90%;
   }
   ul.preview li div img {
     height: 100%;
@@ -190,7 +190,7 @@ export default {
     color: grey;
     font-weight: bold;
     width: 76%;
-    font-size: 34px;
+    font-size: 4.765vmin;
   }
   .musinsa {
     color: black !important;
@@ -198,7 +198,7 @@ export default {
   }
   .btns {
     z-index: 1;
-    top:95%;
+    top: 95%;
     width: 100%;
     height: 5%;
     position: absolute;
@@ -208,8 +208,8 @@ export default {
   }
   input[type="radio"] {
     appearance: none;
-    width: 12px;
-    height: 12px;
+    width: 1.7vmin;
+    height: 1.7vmin;
     border: 1px solid lightgrey;
     border-radius: 50%;
     background: lightgrey;
